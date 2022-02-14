@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './page/Home';
-import './reset.css';
+import Profil from './page/Profil';
+import './style/reset.css';
+import './style/sass/main.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Profil />
   </React.StrictMode>,
   document.getElementById('root')
 );

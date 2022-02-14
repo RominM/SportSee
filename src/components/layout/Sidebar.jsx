@@ -3,7 +3,6 @@ import Zen from './../../assets/images/zen.svg';
 import Swim from './../../assets/images/swim.svg';
 import Ride from './../../assets/images/ride.svg';
 import Weight from './../../assets/images/weight.svg';
-import './sidebar.css';
 
 const Sidebar = () => {
   return (
