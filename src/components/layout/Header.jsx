@@ -2,9 +2,6 @@ import React from 'react';
 import Logo from './../../assets/images/logo.svg';
 
 const Header = () => {
-  const akka = 0;
-  console.log(akka);
-
   return (
     <header className="header">
       <nav className="header__nav">
