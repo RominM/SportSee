@@ -1,10 +1,15 @@
-import { mockUsers } from './mockUsers';
-import { Api } from './fromBack';
+export const service = (props) => {
+  const id = props.id;
 
-export const getUser = async (id) => {
-  // const api = new Api()
-  const api = new mockUsers();
-  const result = await api.getUsersById(id);
+  const URL_Api = 'http://localhost:3000/user/' + id;
+  const usersMocked = require('./usersMocked.json');
 
-  return result;
+  const getUsersById = async (id) => {
+    !URL_Api
+      ? usersMocked.find((user) => user.id === id)
+      : fetch(URL_Api)
+          .then((reponse) => reponse.json())
+          .then((jsonResponse) => jsonResponse.data);
+  };
+  getUsersById(id);
 };
