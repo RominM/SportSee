@@ -5,24 +5,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Error from './page/Error';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
-import Profil from './page/Profil';
 
 import './style/reset.css';
 import './style/sass/main.scss';
 import Home from './page/Home';
-import ProfilNotFound from './page/ProfilNotFound';
+// import ProfilNotFound from './page/ProfilNotFound';
+import SelectUser from './page/SelectUser';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Header />
-      {/* <Profil /> */}
       <div className="block-page">
         <Routes>
-          <Route path="/Acceuil" element={<Home />} />
-          <Route path="/Profil" element={<Profil />} />
-          {/* <Route path="/Profil/not-found" element={<ProfilNotFound />} /> */}
-          <Route path="/*" element={<Error />} />
+          <Route path="/" element={<SelectUser />} />
+          <Route path="/Acceuil/:id/" element={<Home />} />
+          {/* <Route path="/not-found" element={<ProfilNotFound />} /> */}
+          {/* <Route path="/*" element={<Error />} /> */}
         </Routes>
       </div>
       <Sidebar />

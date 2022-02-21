@@ -6,15 +6,15 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav">
-        <div className="logo">
+        <Link to="/" className="logo">
           <img src={Logo} alt="logo" />
-        </div>
+        </Link>
         <h1>SportSee</h1>
         <ul className="header-ul">
           <Link to="/Acceuil">
             <li>Accueil</li>
           </Link>
-          <Link to="/Profil/">
+          <Link to="/Profil">
             <li>Profil</li>
           </Link>
           <Link to="/setting">
