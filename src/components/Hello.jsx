@@ -16,7 +16,6 @@ const Hello = ({ currentUser }) => {
         <div className="secondary-graph">
           <Average />
           <Performance />
-          
         </div>
       </main>
     </>

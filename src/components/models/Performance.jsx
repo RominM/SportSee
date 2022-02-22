@@ -64,7 +64,11 @@ const Performance = () => {
   const data = currentPerformance.data;
 
   return (
-    <ResponsiveContainer width="100%" aspect={1}>
+    <ResponsiveContainer
+      width={320}
+      height={320}
+      className="anaItem performance"
+    >
       <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" />
@@ -72,8 +76,8 @@ const Performance = () => {
         <Radar
           name="Mike"
           dataKey="value"
-          stroke="#8884d8"
-          fill="#8884d8"
+          stroke="#ff000"
+          fill="#ff0000"
           fillOpacity={0.6}
         />
       </RadarChart>

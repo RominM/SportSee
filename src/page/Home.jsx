@@ -20,7 +20,7 @@ const Home = () => {
     return <Navigate to="not-found" />;
   }
   return (
-    <div>
+    <div className="home">
       <Hello currentUser={currentUser} />
     </div>
   );

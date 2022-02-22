@@ -9,10 +9,15 @@ ul,
   position: relative;
   display: flex;
   justify-content: space-between;
-  color: #fff;
   width: 90%;
   padding-top: 40px;
   padding-left: 100px;
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 }
 
 .header-ul {
@@ -30,4 +35,6 @@ ul,
 h1 {
   color: #ff0101;
   font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: lighter;
 }
