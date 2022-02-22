@@ -1,0 +1,35 @@
+@import './../01_Base/module.scss';
+
+.not-found {
+  color: $MainRed;
+  text-align: center;
+  width: 750px;
+  margin-left: 310px;
+  //   font-family: $MainFont;
+  span {
+    display: block;
+    font-size: 22vw;
+    //  font-family: $BoldFont;
+  }
+  h1 {
+    font-size: 2vw;
+    margin-bottom: 100px;
+    padding: 60px;
+  }
+  .error-link {
+    display: block;
+    font-size: 1.5em;
+    color: $MainRed;
+    text-decoration: underline;
+    margin-bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .not-found {
+    h1 {
+      font-size: 2vh;
+      padding: 30px;
+    }
+  }
+}

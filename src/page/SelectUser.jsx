@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from '../fetch/userMock';
+import data from '../service/dataUsersMocked';
 
 const SelectUser = () => {
   return (

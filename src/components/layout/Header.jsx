@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from './../../assets/images/logo.svg';
 
 const Header = () => {
+  let id;
   return (
     <header className="header">
       <nav className="header__nav">
@@ -11,9 +12,15 @@ const Header = () => {
         </Link>
         <h1>SportSee</h1>
         <ul className="header-ul">
-          <Link to="/Acceuil">
-            <li>Accueil</li>
-          </Link>
+          {id ? (
+            <Link to="/Accueil/:id">
+              <li>Accueil</li>
+            </Link>
+          ) : (
+            <Link to="/Selectu_User">
+              <li>Accueil</li>
+            </Link>
+          )}
           <Link to="/Profil">
             <li>Profil</li>
           </Link>
