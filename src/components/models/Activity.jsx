@@ -17,10 +17,12 @@ import dataMocked from './../../service/dataUsersMocked';
 const Activity = () => {
   const activityData = dataMocked.USER_ACTIVITY;
   const currentRoute = useParams();
-  const activityID = currentRoute.activityID;
+  const activityID = currentRoute.id;
 
   // init activity
-  const currentActivity = activityData.find((user) => user.id == activityID); // ??? id is an integer but waiting for a string
+  const currentActivity = activityData.find(
+    (user) => user.userId == activityID
+  ); // ??? id is an integer but waiting for a string
 
   const data = currentActivity.sessions;
 

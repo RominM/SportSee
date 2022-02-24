@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -11,7 +11,10 @@ import {
 } from 'recharts';
 
 import dataMocked from './../../service/dataUsersMocked';
+import { TestData } from '../../service/test';
+import { Mock } from './../../service/Mock';
 
+/*
 const data = [
   {
     subject: 'Math',
@@ -50,19 +53,36 @@ const data = [
     fullMark: 150,
   },
 ];
-
+*/
 const Performance = () => {
   const performanceData = dataMocked.USER_PERFORMANCE;
   const currentRoute = useParams();
-  const perfomanceID = currentRoute.perfomanceID;
+  const perfomanceID = currentRoute.id;
 
   // init activity
   const currentPerformance = performanceData.find(
-    (user) => user.id == perfomanceID
+    (user) => user.userId == perfomanceID
   ); // ??? id is an integer but waiting for a string
 
   const data = currentPerformance.data;
-
+  console.log(data);
+  // TestData();
+  /**
+   *
+   *
+   *
+   *
+   */
+  const [performance, setPerformance] = useState();
+  /**
+   *
+   *
+   *
+   *
+   */
+  const test = new Mock();
+  test.getMainData();
+  console.log(test.getMainData());
   return (
     <ResponsiveContainer
       width={320}

@@ -2,6 +2,8 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import dataMocked from '../service/dataUsersMocked';
 import Hello from '../components/Hello';
+import Main from '../components/layout/Main';
+import Aside from '../components/layout/Aside';
 
 /**
  * @param { Integer } props id: used for route
@@ -19,9 +21,15 @@ const Home = () => {
   if (!currentUser) {
     return <Navigate to="not-found" />;
   }
+
+
   return (
     <div className="home">
       <Hello currentUser={currentUser} />
+      <div className="body-graph">
+        <Main />
+        <Aside />
+      </div>
     </div>
   );
 };

@@ -16,10 +16,10 @@ import dataMocked from './../../service/dataUsersMocked';
 const Average = () => {
   const averageData = dataMocked.USER_AVERAGE_SESSIONS;
   const currentRoute = useParams();
-  const averageID = currentRoute.averageID;
+  const averageID = currentRoute.id;
 
   // init activity
-  const currentAverage = averageData.find((user) => user.id == averageID); // ??? id is an integer but waiting for a string
+  const currentAverage = averageData.find((user) => user.userId == averageID); // ??? id is an integer but waiting for a string
 
   const data = currentAverage.sessions;
 
