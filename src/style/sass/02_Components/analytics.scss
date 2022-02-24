@@ -1,0 +1,30 @@
+.analytics {
+  display: flex;
+  width: 240px;
+  height: 118px;
+  align-items: center;
+  background: #fbfbfb;
+  span {
+    width: 12px;
+  }
+  img {
+    width: 22px;
+    height: 22px;
+    margin: 18px;
+    padding: 18px;
+    background-color: #000;
+    border-radius: 10px;
+  }
+  .calories {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  .protéines {
+    background: rgba(74, 184, 255, 0.1);
+  }
+  .glucides {
+    background: rgba(249, 206, 35, 0.2);
+  }
+  .lipides {
+    background: rgba(253, 81, 129, 0.1);
+  }
+}

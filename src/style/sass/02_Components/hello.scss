@@ -1,17 +1,12 @@
-.h2 {
-  font-size: 2.5em;
-  margin-bottom: 25px;
-}
-
-span {
-  color: #ff0101;
-}
-
-.congrat {
-  font-size: 1.2em;
-}
-
-.secondary-graph {
-  border: solid;
-  display: flex;
+.hello {
+  &--user {
+    font-size: 3em;
+    margin-bottom: 25px;
+    span {
+      color: #ff0101;
+    }
+  }
+  p {
+    font-size: 1.2em;
+  }
 }

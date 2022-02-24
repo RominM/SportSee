@@ -10,8 +10,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-import dataMocked from './../../service/dataUsersMocked';
-import { TestData } from '../../service/test';
 import { Mock } from './../../service/Mock';
 
 /*
@@ -54,6 +52,9 @@ const data = [
   },
 ];
 */
+
+import dataMocked from './../../service/dataUsersMocked';
+
 const Performance = () => {
   const performanceData = dataMocked.USER_PERFORMANCE;
   const currentRoute = useParams();
@@ -64,9 +65,8 @@ const Performance = () => {
     (user) => user.userId == perfomanceID
   ); // ??? id is an integer but waiting for a string
 
-  const data = currentPerformance.data;
-  console.log(data);
-  // TestData();
+  const perf = currentPerformance.data;
+
   /**
    *
    *
@@ -83,25 +83,45 @@ const Performance = () => {
   const test = new Mock();
   test.getMainData();
   console.log(test.getMainData());
+
+  const TranformKind = (tickItem) => {
+    const Kind = [
+      'Cardio',
+      'Energie',
+      'Endurance',
+      'Force',
+      'Vitesse',
+      'Intensité',
+    ];
+    if (tickItem) return Kind[tickItem - 1];
+  };
   return (
-    <ResponsiveContainer
-      width={320}
-      height={320}
-      className="anaItem performance"
-    >
-      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-        <PolarGrid />
-        <PolarAngleAxis dataKey="kind" />
-        <PolarRadiusAxis />
-        <Radar
-          name="Mike"
-          dataKey="value"
-          stroke="#ff000"
-          fill="#ff0000"
-          fillOpacity={0.6}
-        />
-      </RadarChart>
-    </ResponsiveContainer>
+    <div className="anaItem performance">
+      <ResponsiveContainer width={300} height={300}>
+        <RadarChart cx="50%" cy="50%" outerRadius="60%" data={perf}>
+          <PolarGrid radialLines={false} />
+
+          <PolarAngleAxis
+            dataKey="kind"
+            tickFormatter={TranformKind}
+            stroke={`#fff`}
+            dy={4}
+            tickLine={false}
+            style={{
+              fontSize: '12px',
+              fontWeight: '500',
+            }}
+          />
+
+          <Radar
+            name="Mike"
+            dataKey="value"
+            fill={`#ff0000`}
+            fillOpacity={0.7}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 

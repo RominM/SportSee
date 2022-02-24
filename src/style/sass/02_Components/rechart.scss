@@ -1,15 +1,22 @@
 .anaItem {
   border-radius: 5px;
+  margin: 25px;
 }
 .activity {
   width: 100%;
-  background-color: #fbfbfb;
+  background: #fbfbfb;
 }
 
 .average {
-  background-color: #ff0000;
+  background: #ff0000;
 }
 
 .performance {
   background: #282d30;
+}
+
+.score {
+  background: #fbfbfb;
+  height: 320px;
+  width: 320px;
 }
