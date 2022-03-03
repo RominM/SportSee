@@ -28,7 +28,9 @@ export class Mock {
   }
 
   async getUserPerformance(userId) {
-    const perfomranceData = this.perfomrance.find((item) => item.id === userId);
+    const perfomranceData = this.perfomrance.find((item) => {
+      return item.userId === Number(userId);
+    });
     return perfomranceData;
   }
 }

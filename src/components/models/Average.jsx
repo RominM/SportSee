@@ -45,7 +45,7 @@ const Average = () => {
             stroke="white"
           />
           <CartesianGrid horizontal={false} vertical={false} />
-          <XAxis
+          <XAxis // DAYS
             dataKey="day"
             axisLine={false}
             mirror={true}

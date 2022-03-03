@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -53,19 +53,17 @@ const data = [
 ];
 */
 
-import dataMocked from './../../service/dataUsersMocked';
+// import dataMocked from './../../service/dataUsersMocked';
 
 const Performance = () => {
-  const performanceData = dataMocked.USER_PERFORMANCE;
-  const currentRoute = useParams();
-  const perfomanceID = currentRoute.id;
+  // const performanceData = dataMocked.USER_PERFORMANCE;
 
   // init activity
-  const currentPerformance = performanceData.find(
-    (user) => user.userId == perfomanceID
-  ); // ??? id is an integer but waiting for a string
+  // const currentPerformance = performanceData.find(
+  //   (user) => user.userId == perfomanceID
+  // ); // ??? id is an integer but waiting for a string
 
-  const perf = currentPerformance.data;
+  // const perf = currentPerformance.data;
 
   /**
    *
@@ -73,16 +71,25 @@ const Performance = () => {
    *
    *
    */
+  const currentRoute = useParams();
+  const userId = currentRoute.id;
   const [performance, setPerformance] = useState();
+  useEffect(() => {
+    const testPerf = async () => {
+      const test = new Mock();
+      const perf = await test.getUserPerformance(userId);
+      setPerformance(perf);
+    };
+    testPerf();
+  });
+
+  console.log(performance.data);
   /**
    *
    *
    *
    *
    */
-  const test = new Mock();
-  test.getMainData();
-  console.log(test.getMainData());
 
   const TranformKind = (tickItem) => {
     const Kind = [
@@ -98,7 +105,7 @@ const Performance = () => {
   return (
     <div className="anaItem performance">
       <ResponsiveContainer width={300} height={300}>
-        <RadarChart cx="50%" cy="50%" outerRadius="60%" data={perf}>
+        <RadarChart cx="50%" cy="50%" outerRadius="60%" data={performance.data}>
           <PolarGrid radialLines={false} />
 
           <PolarAngleAxis
