@@ -13,23 +13,27 @@ export class Mock {
     this.perfomrance = USER_PERFORMANCE;
   }
   async getMainData(id) {
-    const userData = this.main.find((item) => item.id === id);
+    const userData = this.main.find((user) => user.id === Number(id));
     return userData;
   }
 
   async getUserActivity(userId) {
-    const activityData = this.activity.find((item) => item.id === userId);
+    const activityData = this.activity.find(
+      (user) => user.userId === Number(userId)
+    );
     return activityData;
   }
 
   async getUserAverage(userId) {
-    const averageData = this.average.find((item) => item.id === userId);
+    const averageData = this.average.find(
+      (user) => user.userId === Number(userId)
+    );
     return averageData;
   }
 
   async getUserPerformance(userId) {
-    const perfomranceData = this.perfomrance.find((item) => {
-      return item.userId === Number(userId);
+    const perfomranceData = this.perfomrance.find((user) => {
+      return user.userId === Number(userId);
     });
     return perfomranceData;
   }

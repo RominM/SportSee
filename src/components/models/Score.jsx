@@ -21,20 +21,20 @@ const Score = ({ scoreData }) => {
         </div>
       </div>
 
-      <ResponsiveContainer width={320} height={320}>
-        <RadialBarChart
-          width={80}
-          height={350}
-          startAngle={90}
-          endAngle={450}
-          innerRadius={50}
-          outerRadius={110}
-          barSize={10}
-          data={scoreValue}
-        >
-          <RadialBar cornerRadius={50} dataKey="value" />
-        </RadialBarChart>
-      </ResponsiveContainer>
+      <RadialBarChart
+        width={320}
+        height={320}
+        width={80}
+        height={350}
+        startAngle={90}
+        endAngle={450}
+        innerRadius={50}
+        outerRadius={110}
+        barSize={10}
+        data={scoreValue}
+      >
+        <RadialBar cornerRadius={50} dataKey="value" />
+      </RadialBarChart>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import dataMocked from '../service/dataUsersMocked';
 import Hello from '../components/Hello';
@@ -9,6 +9,7 @@ import fireIcon from './../assets/images/fire.svg';
 import meatIcon from './../assets/images/meat.svg';
 import appleIcon from './../assets/images/apple.svg';
 import burgerIcon from './../assets/images/burger.svg';
+import { Mock } from '../service/Mock';
 
 /**
  * @param { Integer } props id: used for route
@@ -16,6 +17,32 @@ import burgerIcon from './../assets/images/burger.svg';
  */
 
 const Home = () => {
+  /*
+  const userID = useParams().id;
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const testPerf = async () => {
+      const mock = new Mock();
+      const user = await mock.getMainData(userID);
+      setUser(user);
+    };
+    testPerf();
+  }, [userID]);
+  const userData = user.data;
+
+  console.log(userData);
+
+  */
+  /*
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+
   const UserData = dataMocked.USER_MAIN_DATA;
   const currentRoute = useParams();
   const userId = currentRoute.id;
@@ -34,7 +61,7 @@ const Home = () => {
         <Main />
         <aside className="analyticsRight">
           <Analytics
-            id={currentUser.id}
+            // id={currentUser.id}
             compoId="calo"
             iconSrc={fireIcon}
             iconAlt="calories"
@@ -42,7 +69,7 @@ const Home = () => {
             compoType="Calories"
           />
           <Analytics
-            id={currentUser.id}
+            // id={currentUser.id}
             compoId="prot"
             iconSrc={meatIcon}
             iconAlt="protéines"
@@ -50,7 +77,7 @@ const Home = () => {
             compoType="Protéines"
           />
           <Analytics
-            id={currentUser.id}
+            // id={currentUser.id}
             compoId="gluc"
             iconSrc={appleIcon}
             iconAlt="glucides"
@@ -58,7 +85,7 @@ const Home = () => {
             compoType="Glucides"
           />
           <Analytics
-            id={currentUser.id}
+            // id={currentUser.id}
             compoId="lipi"
             iconSrc={burgerIcon}
             iconAlt="lipides"
