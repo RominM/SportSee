@@ -25,13 +25,6 @@ const Performance = () => {
   }, [performanceID]);
   const performanceData = performance.data;
 
-
-
-
-
-
-
-
   const TranformKind = (tickItem) => {
     const Kind = [
       'Cardio',
@@ -47,8 +40,8 @@ const Performance = () => {
   return (
     <div className="anaItem performance">
       <RadarChart
-        width={300}
-        height={300}
+        width={320}
+        height={320}
         cx="50%"
         cy="50%"
         outerRadius="60%"
@@ -68,7 +61,12 @@ const Performance = () => {
           }}
         />
 
-        <Radar name="Mike" dataKey="value" fill={`#ff0000`} fillOpacity={0.7} />
+        <Radar
+          name="Radar"
+          dataKey="value"
+          fill={`#ff0000`}
+          fillOpacity={0.7}
+        />
       </RadarChart>
     </div>
   );

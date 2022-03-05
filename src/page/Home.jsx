@@ -3,12 +3,8 @@ import { Navigate, useParams } from 'react-router-dom';
 import dataMocked from '../service/dataUsersMocked';
 import Hello from '../components/Hello';
 import Main from '../components/layout/Main';
-import Analytics from '../components/Analytics';
+import Aside from '../components/layout/Aside';
 
-import fireIcon from './../assets/images/fire.svg';
-import meatIcon from './../assets/images/meat.svg';
-import appleIcon from './../assets/images/apple.svg';
-import burgerIcon from './../assets/images/burger.svg';
 import { Mock } from '../service/Mock';
 
 /**
@@ -48,7 +44,7 @@ const Home = () => {
   const userId = currentRoute.id;
 
   // init user
-  const currentUser = UserData.find((user) => user.id == userId); // ??? id is an integer but waiting for a string
+  const currentUser = UserData.find((user) => user.id === Number(userId)); // ??? id is an integer but waiting for a string
   // if wrong user URL
   if (!currentUser) {
     return <Navigate to="not-found" />;
@@ -59,40 +55,7 @@ const Home = () => {
       <Hello currentUser={currentUser} />
       <div className="body-graph">
         <Main />
-        <aside className="analyticsRight">
-          <Analytics
-            // id={currentUser.id}
-            compoId="calo"
-            iconSrc={fireIcon}
-            iconAlt="calories"
-            // compoValue={`${keyData.calorieCount}kCal`}
-            compoType="Calories"
-          />
-          <Analytics
-            // id={currentUser.id}
-            compoId="prot"
-            iconSrc={meatIcon}
-            iconAlt="protéines"
-            // compoValue={`${keyData.proteinCount}g`}
-            compoType="Protéines"
-          />
-          <Analytics
-            // id={currentUser.id}
-            compoId="gluc"
-            iconSrc={appleIcon}
-            iconAlt="glucides"
-            // compoValue={`${keyData.carbohydrateCount}g`}
-            compoType="Glucides"
-          />
-          <Analytics
-            // id={currentUser.id}
-            compoId="lipi"
-            iconSrc={burgerIcon}
-            iconAlt="lipides"
-            // compoValue={`${keyData.lipidCount}g`}
-            compoType="Lipides"
-          />
-        </aside>
+        <Aside />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .sidebar__nav {
   position: relative;
-  width: 100px;
+  width: 120px;
   height: 100vh;
   background-color: #000;
   .ul-side {
@@ -9,12 +9,12 @@
     justify-content: space-between;
     height: 28%;
     padding-top: 200px;
-    padding-left: 25px;
+    padding-left: 35px;
     .li-side img {
       background-color: #fff;
       width: 40px;
       height: 40px;
-      padding: 5px;
+      padding: 10px;
       border-radius: 5px;
     }
     button {

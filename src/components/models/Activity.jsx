@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-
 import { Mock } from './../../service/Mock';
+import BlackPoint from './../../assets/images/BlackPoint.svg';
+import RedPoint from './../../assets/images/RedPoint.svg';
 
 const Activity = () => {
   const activityID = useParams().id;
@@ -24,28 +24,55 @@ const Activity = () => {
     return dayNumber.getDate();
   };
 
+  const customTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            background: '#ff0101',
+            height: 45,
+            color: 'white',
+            fontSize: 12,
+            textAlign: 'center',
+            padding: 10,
+          }}
+        >
+          <p>{`${payload[0].value} kg`}</p>
+          <p>{`${payload[1].value} kCal`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
   return (
-    <div className="anaItem activity">
-      <div className="Legend">
-        <span>Activité quotidienne</span>
-        <div className="LegendItems">
+    <div className="activity">
+      <div className="legend">
+        <h3>Activité quotidienne</h3>
+        <div className="legendItems">
           <div>
-            <span>⚫</span>
+            <span>
+              <img src={BlackPoint} alt="point noir" />
+            </span>
             Poids (kg)
           </div>
           <div>
-            <span>🔴</span>
+            <span>
+              <img src={RedPoint} alt="point rouge" />
+            </span>
             Calories Brulées (kCal)
           </div>
         </div>
       </div>
       <BarChart
-        width={920}
-        height={340}
+        width={1050}
+        height={300}
         data={activityData}
         barGap={9}
         barSize={9}
-        margin={{ top: 90, right: 0, bottom: 25, left: 14 }}
+        margin={{ top: 10, right: 0, bottom: 25, left: 14 }}
       >
         <CartesianGrid strokeDasharray="2" vertical={false} />
         <XAxis
@@ -56,7 +83,7 @@ const Activity = () => {
           tickLine={false}
           tickMargin={15}
         />
-        <Tooltip offset={30} />
+        <Tooltip content={customTooltip} offset={30} />{' '}
         <YAxis
           yAxisId="left"
           axisLine={false}

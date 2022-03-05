@@ -1,32 +1,40 @@
 .anaItem {
+  width: 320px;
+  height: 320px;
   border-radius: 5px;
-  margin: 25px;
 }
 .activity {
   width: 100%;
-  background: #fbfbfb;
+  border-radius: 5px;
+  margin: 50px 20px 50px 0;
+  background: $BgRechart;
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    width: 920px;
+    h3 {
+      margin: 50px 25px;
+    }
+    .legendItems {
+      justify-content: space-between;
+      width: 40%;
+      margin-top: 50px;
+      display: flex;
+      span {
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 .average {
-  background: #ff0000;
+  background: $MainRed;
 }
 
 .performance {
-  background: #282d30;
+  background: $BgRadial;
 }
 
 .score {
-  background: #fbfbfb;
-  height: 320px;
-  width: 320px;
-}
-
-.Legend {
-  display: flex;
-  justify-content: space-between;
-  width: 920px;
-  margin-top: 50px;
-}
-.LegendItems {
-  display: flex;
+  background: $BgRechart;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts';
+import { RadialBar, RadialBarChart } from 'recharts';
 
 const Score = ({ scoreData }) => {
   // A false daily score of 100% (ie, value: 1) is needed as a comparison
@@ -11,7 +11,7 @@ const Score = ({ scoreData }) => {
 
   // Display RadialBarChart (Recharts)
   return (
-    <div className="score anaItem">
+    <div className="anaItem score">
       <div>Score</div>
       <div>
         <div>{100 * scoreData}%</div>
@@ -24,8 +24,6 @@ const Score = ({ scoreData }) => {
       <RadialBarChart
         width={320}
         height={320}
-        width={80}
-        height={350}
         startAngle={90}
         endAngle={450}
         innerRadius={50}

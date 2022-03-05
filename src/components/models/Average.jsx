@@ -7,7 +7,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from 'recharts';
 import { Mock } from '../../service/Mock';
 
@@ -31,13 +30,42 @@ const Average = () => {
     return days[day - 1];
   };
 
+  /**
+   * Show custom tooltip
+   * @param {Object} params
+   * @param {Boolean} params.active
+   * @param {Array} params.payload
+   * @return {JSX || null}
+   */
+
+  const customTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            background: 'white',
+            fontSize: 10,
+            fontWeight: 500,
+            textAlign: 'center',
+            padding: 10,
+          }}
+        >
+          <p>{`${payload[0].value} min`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
-    <>
-      <div>Durée moyenne des sessions</div>
+    <div className="anaItem average">
+      <h3>
+        Durée moyenne des <br />
+        sessions
+      </h3>
       <LineChart
-        width={300}
-        height={300}
-        className="anaItem average graphCenter"
+        width={320}
+        height={320}
         data={averageData}
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
       >
@@ -68,11 +96,12 @@ const Average = () => {
           tickLine={false}
         />
         <Tooltip
+          content={customTooltip}
           cursor={{ stroke: 'black', strokeOpacity: 0.2, strokeWidth: 40 }}
           offset={30}
-        />
+        />{' '}
       </LineChart>
-    </>
+    </div>
   );
 };
 
