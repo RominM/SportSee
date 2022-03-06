@@ -7,12 +7,6 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    h3 {
-      position: absolute;
-      top: 4em;
-      left: 4em;
-      color: $TxtAverage;
-      z-index: 1;
-    }
+
   }
 }

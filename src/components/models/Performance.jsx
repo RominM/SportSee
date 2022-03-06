@@ -16,12 +16,12 @@ const Performance = () => {
   const [performance, setPerformance] = useState([]);
 
   useEffect(() => {
-    const testPerf = async () => {
+    const getPerfomance = async () => {
       const mock = new Mock();
       const userPerformance = await mock.getUserPerformance(performanceID);
       setPerformance(userPerformance);
     };
-    testPerf();
+    getPerfomance();
   }, [performanceID]);
   const performanceData = performance.data;
 
@@ -44,7 +44,7 @@ const Performance = () => {
         height={320}
         cx="50%"
         cy="50%"
-        outerRadius="60%"
+        outerRadius="65%"
         data={performanceData}
       >
         <PolarGrid radialLines={false} />

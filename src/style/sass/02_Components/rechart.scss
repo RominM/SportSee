@@ -29,6 +29,13 @@
 
 .average {
   background: $MainRed;
+  h3 {
+    position: absolute;
+    top: 4em;
+    left: 4em;
+    color: $TxtAverage;
+    z-index: 1;
+  }
 }
 
 .performance {
@@ -37,4 +44,20 @@
 
 .score {
   background: $BgRechart;
+  position: relative;
+  h3 {
+    color: $MainBlack;
+    position: absolute;
+    margin: 25px;
+  }
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.3rem;
+    strong {
+      font-size: 1.7em;
+    }
+  }
 }

@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { RadialBar, RadialBarChart } from 'recharts';
+import { Mock } from '../../service/Mock';
 
-const Score = ({ scoreData }) => {
+const Score = () => {
+  const scoreID = useParams().id;
+  const [score, setScore] = useState([]);
+
+  useEffect(() => {
+    const getScore = async () => {
+      const mock = new Mock();
+      const mainUser = await mock.getMainData(scoreID);
+      setScore(mainUser);
+    };
+    getScore();
+  }, [scoreID]);
+
+  const scoreData = score.todayScore || score.score;
+  console.log(scoreData);
+
   // A false daily score of 100% (ie, value: 1) is needed as a comparison
   // in order to display todayScore correctly
   const scoreValue = [
@@ -12,22 +29,23 @@ const Score = ({ scoreData }) => {
   // Display RadialBarChart (Recharts)
   return (
     <div className="anaItem score">
-      <div>Score</div>
-      <div>
-        <div>{100 * scoreData}%</div>
-        <div>
+      <h3>Score</h3>
+      <p>
+        <strong>{100 * scoreData}%</strong>
+        <br />
+        <span>
           de votre <br />
-          objectif{' '}
-        </div>
-      </div>
+          objectif
+        </span>
+      </p>
 
       <RadialBarChart
         width={320}
         height={320}
         startAngle={90}
         endAngle={450}
-        innerRadius={50}
-        outerRadius={110}
+        innerRadius={90}
+        outerRadius={90}
         barSize={10}
         data={scoreValue}
       >
