@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { Mock } from './../../service/Mock';
+import { Api } from '../../service/Api';
+import { Mock } from '../../service/Mock.service';
 import BlackPoint from './../../assets/images/BlackPoint.svg';
 import RedPoint from './../../assets/images/RedPoint.svg';
 
@@ -10,12 +11,14 @@ const Activity = () => {
   const [activity, setActivity] = useState([]);
 
   useEffect(() => {
-    const testPerf = async () => {
-      const mock = new Mock();
-      const userActivity = await mock.getUserActivity(activityID);
+    const getPerformance = async () => {
+      // const mock = new Mock();
+      // const userActivity = await mock.getUserActivity(activityID);
+      const api = new Api();
+      const userActivity = await api.getUserActivity(activityID);
       setActivity(userActivity);
     };
-    testPerf();
+    getPerformance();
   }, [activityID]);
   const activityData = activity.sessions;
 

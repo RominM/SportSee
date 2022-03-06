@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { RadialBar, RadialBarChart } from 'recharts';
-import { Mock } from '../../service/Mock';
+import { Api } from '../../service/Api';
+import { Mock } from '../../service/Mock.service';
 
 const Score = () => {
   const scoreID = useParams().id;
   const [score, setScore] = useState([]);
-  // console.log(score);
   useEffect(() => {
     const getScore = async () => {
-      const mock = new Mock();
-      const mainUser = await mock.getMainData(scoreID);
+      // const mock = new Mock();
+      // const mainUser = await mock.getMainData(scoreID);
+      const api = new Api();
+      const mainUser = await api.getUserActivity(scoreID);
+
       setScore(mainUser);
     };
     getScore();

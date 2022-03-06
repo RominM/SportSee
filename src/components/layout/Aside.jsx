@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 
-import Analytics from '../models/Analytics';
+import Analytics from '../Analytics';
 
 import fireIcon from './../../assets/images/fire.svg';
 import meatIcon from './../../assets/images/meat.svg';
 import appleIcon from './../../assets/images/apple.svg';
 import burgerIcon from './../../assets/images/burger.svg';
 import { useParams } from 'react-router-dom';
-import { Mock } from '../../service/Mock';
+import { Mock } from '../../service/Mock.service';
+import { Api } from '../../service/Api';
 
 const Aside = () => {
   const keyDataID = useParams().id;
   const [keyData, setKeyData] = useState([]);
   useEffect(() => {
     const getKeyData = async () => {
-      const mock = new Mock();
-      const mainUser = await mock.getMainData(keyDataID);
-      console.log(mainUser);
+      // const mock = new Mock();
+      // const mainUser = await mock.getMainData(keyDataID);
+      const api = new Api();
+      const mainUser = await api.getUserActivity(keyDataID);
       setKeyData(mainUser);
     };
     getKeyData();

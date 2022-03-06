@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from 'recharts';
-import { Mock } from '../../service/Mock';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { Api } from '../../service/Api';
+import { Mock } from '../../service/Mock.service';
 
 const Average = () => {
   const averageID = useParams().id;
@@ -16,8 +10,11 @@ const Average = () => {
 
   useEffect(() => {
     const getAverage = async () => {
-      const mock = new Mock();
-      const userAverage = await mock.getUserAverage(averageID);
+      // const mock = new Mock();
+      // const userAverage = await mock.getUserAverage(averageID);
+      const api = new Api();
+      const userAverage = await api.getUserActivity(averageID);
+
       setAverage(userAverage);
     };
     getAverage();

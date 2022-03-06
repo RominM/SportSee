@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-} from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 
-import { Mock } from './../../service/Mock';
+import { Mock } from '../../service/Mock.service';
 
 const Performance = () => {
   const performanceID = useParams().id;

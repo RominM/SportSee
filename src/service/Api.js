@@ -4,15 +4,29 @@ export class Api {
     this.userId = userId;
   }
   async getMainData(id) {
-    return `Api Main`;
+    const response = await fetch('http://localhost:3000/user/' + id);
+    const data = await response.json();
+    return data.data;
   }
   async getUserActivity(userId) {
-    return 'Api Activity';
+    const response = await fetch(
+      'http://localhost:3000/user/' + userId + '/activity'
+    );
+    const data = await response.json();
+    return data.data.sessions;
   }
   async getUserAverage(userId) {
-    return 'Api Average';
+    const response = await fetch(
+      'http://localhost:3000/user/' + userId + '/average-sessions'
+    );
+    const data = await response.json();
+    return data.data.sessions;
   }
   async getUserPerformance(userId) {
-    return 'Api Perfomrance';
+    const response = await fetch(
+      'http://localhost:3000/user/' + userId + '/performance'
+    );
+    const data = await response.json();
+    return data.data;
   }
 }
