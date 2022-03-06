@@ -12,6 +12,10 @@ aside {
     align-items: center;
     background: $BgRechart;
     border-radius: 5px;
+    line-height: 1.7em;
+    strong {
+      font-size: 1.5em;
+    }
     span {
       width: 12px;
     }

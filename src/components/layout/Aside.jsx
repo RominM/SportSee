@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Analytics from '../models/Analytics';
 
@@ -6,40 +6,52 @@ import fireIcon from './../../assets/images/fire.svg';
 import meatIcon from './../../assets/images/meat.svg';
 import appleIcon from './../../assets/images/apple.svg';
 import burgerIcon from './../../assets/images/burger.svg';
+import { useParams } from 'react-router-dom';
+import { Mock } from '../../service/Mock';
 
 const Aside = () => {
+  const keyDataID = useParams().id;
+  const [keyData, setKeyData] = useState([]);
+  useEffect(() => {
+    const getKeyData = async () => {
+      const mock = new Mock();
+      const mainUser = await mock.getMainData(keyDataID);
+      console.log(mainUser);
+      setKeyData(mainUser);
+    };
+    getKeyData();
+  }, [keyDataID]);
+
+  const userData = keyData.keyData;
+  console.log(userData);
   return (
     <aside className="analyticsRight">
       <Analytics
-        // id={currentUser.id}
         compoId="calo"
         iconSrc={fireIcon}
         iconAlt="calories"
-        // compoValue={`${keyData.calorieCount}kCal`}
+        // compoValue={`${userData.calorieCount}kCal`}
         compoType="Calories"
       />
       <Analytics
-        // id={currentUser.id}
         compoId="prot"
         iconSrc={meatIcon}
         iconAlt="protéines"
-        // compoValue={`${keyData.proteinCount}g`}
+        // compoValue={`${userData.proteinCount}g`}
         compoType="Protéines"
       />
       <Analytics
-        // id={currentUser.id}
         compoId="gluc"
         iconSrc={appleIcon}
         iconAlt="glucides"
-        // compoValue={`${keyData.carbohydrateCount}g`}
+        // compoValue={`${userData.carbohydrateCount}g`}
         compoType="Glucides"
       />
       <Analytics
-        // id={currentUser.id}
         compoId="lipi"
         iconSrc={burgerIcon}
         iconAlt="lipides"
-        // compoValue={`${keyData.lipidCount}g`}
+        // compoValue={`${userData.lipidCount}g`}
         compoType="Lipides"
       />
     </aside>

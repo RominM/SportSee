@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Mock } from '../../service/Mock';
 
 const Analytics = (props) => {
   return (
-    <div id={props.compoId} className="analytics">
+    <div className="analytics">
       <img
         src={props.iconSrc}
         alt={props.iconAlt}
         className={`${props.iconAlt}`}
       />
       <div>
-        <span className="analyticsRightValue">{props.compoValue}</span>
+        <strong className="analyticsRightValue">{props.compoValue}</strong>
+        <br />
         <span className="analyticsRightType">{props.compoType}</span>
       </div>
     </div>

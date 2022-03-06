@@ -6,7 +6,7 @@ import { Mock } from '../../service/Mock';
 const Score = () => {
   const scoreID = useParams().id;
   const [score, setScore] = useState([]);
-
+  // console.log(score);
   useEffect(() => {
     const getScore = async () => {
       const mock = new Mock();
@@ -17,7 +17,6 @@ const Score = () => {
   }, [scoreID]);
 
   const scoreData = score.todayScore || score.score;
-  console.log(scoreData);
 
   // A false daily score of 100% (ie, value: 1) is needed as a comparison
   // in order to display todayScore correctly
