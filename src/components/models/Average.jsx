@@ -1,6 +1,5 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   LineChart,
   Line,
@@ -12,6 +11,13 @@ import {
 // Service
 import { service } from '../../service/Service';
 
+/**
+ * Renders Average Sessions Line Chart
+ * @function Average
+ * @param { Object } averageData
+ * @returns {JSX}
+ */
+
 const Average = () => {
   const [average, setAverage] = useState([]);
 
@@ -22,19 +28,15 @@ const Average = () => {
     };
     getAverage();
   }, []);
+
   const averageData = average.sessions;
 
-  const daysWeekTxt = (day) => {
-    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-    return days[day - 1];
-  };
-
   /**
-   * Show custom tooltip
-   * @param {Object} params
-   * @param {Boolean} params.active
-   * @param {Array} params.payload
-   * @return {JSX || null}
+   * * Renders the tooltip (minutes) information when user hovers on the line chart
+   * @function CustomTooltip
+   * @param { boolean } active: inital value false / becomes true when hover on linechart
+   * @param { array } payload: contains data to be displayed on hover
+   * @returns { JSX }
    */
 
   const customTooltip = ({ active, payload }) => {
@@ -56,7 +58,16 @@ const Average = () => {
     return null;
   };
 
-  return averageData ? (
+  const daysWeekTxt = (day) => {
+    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    return days[day - 1];
+  };
+
+  if (!averageData) {
+    return null;
+  }
+
+  return (
     <div className="anaItem average">
       <h3>
         Durée moyenne des <br />
@@ -103,8 +114,6 @@ const Average = () => {
         </LineChart>
       </ResponsiveContainer>
     </div>
-  ) : (
-    <></>
   );
 };
 

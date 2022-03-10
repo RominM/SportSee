@@ -4,6 +4,13 @@ import { RadialBar, RadialBarChart } from 'recharts';
 // Service
 import { service } from '../../service/Service';
 
+/**
+ * Renders the user's Score on a RadialBarChart (Recharts)
+ * @function Score
+ * @param { Number } scoreData: users daily score
+ * @returns { JSX }
+ */
+
 const Score = () => {
   const [score, setScore] = useState([]);
   useEffect(() => {
@@ -19,7 +26,7 @@ const Score = () => {
 
   const scoreValue = [
     { value: 1, fill: 'transparent' },
-    { value: scoreData, fill: '#FF0000' },
+    { value: scoreData, fill: '#ff0101' },
   ];
 
   if (!scoreData) {

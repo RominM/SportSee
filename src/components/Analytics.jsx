@@ -10,9 +10,9 @@ const Analytics = (props) => {
         className={`${props.iconAlt}`}
       />
       <div>
-        <strong className="analyticsRightValue">{props.compoValue}</strong>
+        <strong>{props.compoValue}</strong>
         <br />
-        <span className="analyticsRightType">{props.compoType}</span>
+        <span>{props.compoType}</span>
       </div>
     </div>
   );

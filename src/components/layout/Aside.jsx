@@ -10,8 +10,16 @@ import meatIcon from './../../assets/images/meat.svg';
 import appleIcon from './../../assets/images/apple.svg';
 import burgerIcon from './../../assets/images/burger.svg';
 
+/**
+ * Renders the data showing health (calories, carbohydrates, lipids & protiens)
+ * @function Aside
+ * @param { Object } userData
+ * @returns { JSX }
+ */
+
 const Aside = () => {
   const [keyData, setKeyData] = useState([]);
+
   useEffect(() => {
     const getKeyData = async () => {
       const mainUser = await service.getMainData();
@@ -21,6 +29,7 @@ const Aside = () => {
   }, []);
 
   const userData = keyData.keyData;
+
   if (!userData) {
     return null;
   }

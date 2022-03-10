@@ -1,6 +1,5 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Radar,
   RadarChart,
@@ -10,6 +9,14 @@ import {
 } from 'recharts';
 // Service
 import { service } from '../../service/Service';
+
+/**
+ * Renders Performance Radar chart- SimpleRadarChart (Recharts)
+ * @function Performance
+ * @param { Object } PerformanceData
+ * @param { String[] } Kind
+ * @returns { JSX } Performance Radar chart
+ */
 
 const Performance = () => {
   const [performance, setPerformance] = useState([]);

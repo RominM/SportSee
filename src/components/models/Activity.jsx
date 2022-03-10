@@ -1,6 +1,5 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   BarChart,
   Bar,
@@ -16,6 +15,13 @@ import { service } from '../../service/Service';
 import BlackPoint from './../../assets/images/BlackPoint.svg';
 import RedPoint from './../../assets/images/RedPoint.svg';
 
+/**
+ * Renders Activities BarChart with Weight & Calories burned
+ * @function Activity
+ * @param { Object } activityData
+ * @returns { JSX }
+ */
+
 const Activity = () => {
   const [activity, setActivity] = useState([]);
 
@@ -26,12 +32,16 @@ const Activity = () => {
     };
     getPerformance();
   }, []);
+
   const activityData = activity.sessions;
 
-  const daysWeeksNumbers = (date) => {
-    const dayNumber = new Date(date);
-    return dayNumber.getDate();
-  };
+  /**
+   * Renders the tooltip (kg/kCal) information when user hovers on barchart
+   * @function CustomTooltip
+   * @param { boolean } active: inital value false / becomes true when hover on barchart
+   * @param { array } payload: contains data to be displayed on hover
+   * @returns { JSX }
+   */
 
   const customTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -56,7 +66,13 @@ const Activity = () => {
     }
     return null;
   };
-  return activityData ? (
+
+  const daysWeeksNumbers = (date) => {
+    const dayNumber = new Date(date);
+    return dayNumber.getDate();
+  };
+
+  return (
     <div className="activity">
       <div className="legend">
         <h3>Activité quotidienne</h3>
@@ -126,8 +142,6 @@ const Activity = () => {
       </BarChart>
       {/* </ResponsiveContainer> */}
     </div>
-  ) : (
-    <></>
   );
 };
 
