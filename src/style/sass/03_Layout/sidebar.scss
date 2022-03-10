@@ -1,7 +1,7 @@
 .sidebar__nav {
   position: relative;
   width: 90px;
-  height: 100vh;
+  height: 93vh;
   background-color: #000;
   .ul-side {
     display: flex;
@@ -16,6 +16,11 @@
       height: 32px;
       padding: 10px;
       border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .li-side img:hover {
+      transform: scale(1.1);
     }
     button {
       background-color: #fff;

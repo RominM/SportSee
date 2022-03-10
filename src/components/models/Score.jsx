@@ -31,7 +31,7 @@ const Score = () => {
   ];
 
   // Display RadialBarChart (Recharts)
-  return (
+  return scoreData ? (
     <div className="anaItem score">
       <h3>Score</h3>
       <p>
@@ -56,6 +56,8 @@ const Score = () => {
         <RadialBar cornerRadius={50} dataKey="value" />
       </RadialBarChart>
     </div>
+  ) : (
+    <></>
   );
 };
 

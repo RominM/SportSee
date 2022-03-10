@@ -1,11 +1,25 @@
 .home {
-  width: 870px;
-  max-height: 780px;
-  // background-color: green;
   .body-graph {
     display: flex;
-  }
-  aside {
-    // height: 100vw;
+    width: 100%;
+    main {
+      width: 75%;
+      height: auto;
+      margin-right: 25px;
+      .secondary-graph {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25%;
+      height: auto;
+      margin-top: 20px;
+    }
   }
 }

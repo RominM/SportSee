@@ -1,7 +1,13 @@
 // React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  ResponsiveContainer,
+} from 'recharts';
 // Service
 import { Mock } from '../../service/Mock.service';
 
@@ -31,7 +37,8 @@ const Performance = () => {
     if (tickItem) return Kind[tickItem - 1];
   };
 
-  return (
+  return performanceData ? (
+    // <ResponsiveContainer>
     <div className="anaItem performance">
       <RadarChart
         width={200}
@@ -63,6 +70,9 @@ const Performance = () => {
         />
       </RadarChart>
     </div>
+  ) : (
+    //</ResponsiveContainer>
+    <></>
   );
 };
 

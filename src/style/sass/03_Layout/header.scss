@@ -35,6 +35,10 @@
         color: $MainWhite;
         font-weight: normal;
         font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      a:hover {
+        color: $MainRed;
       }
     }
   }

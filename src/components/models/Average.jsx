@@ -62,7 +62,7 @@ const Average = () => {
     return null;
   };
 
-  return (
+  return averageData ? (
     <div className="anaItem average">
       <h3>
         Durée moyenne des <br />
@@ -105,10 +105,12 @@ const Average = () => {
             content={customTooltip}
             cursor={{ stroke: 'black', strokeOpacity: 0.2, strokeWidth: 40 }}
             offset={30}
-          />{' '}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
+  ) : (
+    <></>
   );
 };
 
