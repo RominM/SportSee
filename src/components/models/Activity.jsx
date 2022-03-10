@@ -11,8 +11,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 // Service
-import { Api } from '../../service/Api';
-import { Mock } from '../../service/Mock.service';
 import { service } from '../../service/Service';
 // Tools
 import BlackPoint from './../../assets/images/BlackPoint.svg';

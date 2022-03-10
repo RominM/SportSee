@@ -10,8 +10,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 // Service
-import { Api } from '../../service/Api';
-import { Mock } from '../../service/Mock.service';
 import { service } from '../../service/Service';
 
 const Average = () => {

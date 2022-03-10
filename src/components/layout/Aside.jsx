@@ -1,9 +1,7 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 // Service
-import { Mock } from '../../service/Mock.service';
-import { Api } from '../../service/Api';
+import { service } from '../../service/Service';
 // Components
 import Analytics from '../Analytics';
 // Tools
@@ -11,7 +9,6 @@ import fireIcon from './../../assets/images/fire.svg';
 import meatIcon from './../../assets/images/meat.svg';
 import appleIcon from './../../assets/images/apple.svg';
 import burgerIcon from './../../assets/images/burger.svg';
-import { service } from '../../service/Service';
 
 const Aside = () => {
   const [keyData, setKeyData] = useState([]);
@@ -27,6 +24,7 @@ const Aside = () => {
   if (!userData) {
     return null;
   }
+
   return (
     <aside className="analyticsRight">
       <Analytics

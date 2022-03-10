@@ -8,9 +8,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts';
-import { Api } from '../../service/Api';
 // Service
-import { Mock } from '../../service/Mock.service';
 import { service } from '../../service/Service';
 
 const Performance = () => {
@@ -38,7 +36,11 @@ const Performance = () => {
     if (tickItem) return Kind[tickItem - 1];
   };
 
-  return performanceData ? (
+  if (!performanceData) {
+    return null;
+  }
+
+  return (
     // <ResponsiveContainer>
     <div className="anaItem performance">
       <RadarChart
@@ -71,9 +73,7 @@ const Performance = () => {
         />
       </RadarChart>
     </div>
-  ) : (
     //</ResponsiveContainer>
-    <></>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import data from '../service/dataUsersMocked';
+import data from '../service/data-mocked';
 import logo from './../assets/images/logo.svg';
 
 const SelectUser = () => {

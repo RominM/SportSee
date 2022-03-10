@@ -1,4 +1,4 @@
-import { Api } from './Api';
+import { Api } from './Api.service';
 import { Mock } from './Mock.service';
 
 class Service {
@@ -20,5 +20,5 @@ class Service {
   }
 }
 
-const appUserId = 18;
-export const service = new Service(new Api(), appUserId);
+const appUserId = 12;
+export const service = new Service(new Mock(), appUserId);

@@ -3,7 +3,7 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-} from './dataUsersMocked';
+} from './data-mocked';
 
 export class Mock {
   constructor(main, activity, average, performance) {
