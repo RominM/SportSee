@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+// Components
 import Activity from '../models/Activity';
 import Average from '../models/Average';
 import Performance from '../models/Performance';

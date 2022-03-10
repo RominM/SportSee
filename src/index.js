@@ -10,7 +10,6 @@ import Header from './components/layout/Header';
 import './style/reset.css';
 import './style/sass/master.scss';
 import Home from './page/Home';
-import ProfilNotFound from './page/ProfilNotFound';
 import SelectUser from './page/SelectUser';
 
 const BlockPage = styled.article`
@@ -26,8 +25,7 @@ ReactDOM.render(
       <BlockPage>
         <Routes>
           <Route path="/" element={<SelectUser />} />
-          <Route path="/Acceuil/:id/" element={<Home />} />
-          <Route path="/select_user" element={<ProfilNotFound />} />
+          <Route path="/Accueil/:id/" element={<Home />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </BlockPage>

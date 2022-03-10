@@ -1,8 +1,8 @@
+// React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
-
+// Service
 import { Mock } from '../../service/Mock.service';
 
 const Performance = () => {
@@ -34,8 +34,8 @@ const Performance = () => {
   return (
     <div className="anaItem performance">
       <RadarChart
-        width={320}
-        height={320}
+        width={200}
+        height={200}
         cx="50%"
         cy="50%"
         outerRadius="65%"
@@ -50,7 +50,7 @@ const Performance = () => {
           dy={4}
           tickLine={false}
           style={{
-            fontSize: '12px',
+            fontSize: '9px',
             fontWeight: '500',
           }}
         />

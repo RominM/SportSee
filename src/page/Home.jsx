@@ -1,6 +1,9 @@
+// React
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
+// Service
 import dataMocked from '../service/dataUsersMocked';
+// Components
 import Hello from '../components/Hello';
 import Main from '../components/layout/Main';
 import Aside from '../components/layout/Aside';

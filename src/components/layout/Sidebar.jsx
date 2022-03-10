@@ -1,9 +1,12 @@
+// React
 import React, { useEffect, useState } from 'react';
+// Service
+import { Service } from '../../service/Service';
+// Tools
 import Zen from './../../assets/images/zen.svg';
 import Swim from './../../assets/images/swim.svg';
 import Ride from './../../assets/images/ride.svg';
 import Weight from './../../assets/images/weight.svg';
-import { Service } from '../../service/Service';
 
 const Sidebar = () => {
   const [dataFromService, setDataFromService] = useState(null);

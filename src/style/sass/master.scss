@@ -4,7 +4,6 @@
 @import './01_Base/module.scss';
 // COMPONENTS
 @import './02_Components/hello.scss';
-@import './02_Components/users.scss';
 @import './02_Components/rechart.scss';
 @import './02_Components/analytics.scss';
 // LAYOUT
@@ -13,5 +12,6 @@
 @import './03_Layout/main.scss';
 @import './03_Layout/block-page.scss';
 // PAGES
+@import './04_Pages/users.scss';
 @import './04_Pages/home.scss';
 @import './04_Pages/error.scss';

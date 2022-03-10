@@ -1,19 +1,19 @@
 .sidebar__nav {
   position: relative;
-  width: 120px;
+  width: 90px;
   height: 100vh;
   background-color: #000;
   .ul-side {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 28%;
-    padding-top: 200px;
-    padding-left: 35px;
+    height: 35%;
+    padding-top: 150px;
+    padding-left: 20px;
     .li-side img {
       background-color: #fff;
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       padding: 10px;
       border-radius: 5px;
     }
@@ -36,6 +36,7 @@
     left: -50%;
     width: 200px;
     color: #fff;
+    font-size: 0.7em;
     transform: rotate(270deg);
   }
 }

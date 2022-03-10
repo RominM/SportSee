@@ -1,5 +1,7 @@
+// React
 import React from 'react';
 import { Link } from 'react-router-dom';
+// Tools
 import Logo from './../../assets/images/logo.svg';
 
 const Header = () => {

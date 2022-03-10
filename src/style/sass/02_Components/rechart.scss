@@ -1,7 +1,8 @@
 .anaItem {
-  width: 320px;
-  height: 320px;
+  width: 30%;
+  height: auto;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 .activity {
   width: 100%;
@@ -11,14 +12,14 @@
   .legend {
     display: flex;
     justify-content: space-between;
-    width: 920px;
+    width: 100%;
     h3 {
-      margin: 50px 25px;
+      margin: 20px;
     }
     .legendItems {
       justify-content: space-between;
       width: 40%;
-      margin-top: 50px;
+      margin: 20px;
       display: flex;
       span {
         margin-right: 5px;
@@ -31,8 +32,8 @@
   background: $MainRed;
   h3 {
     position: absolute;
-    top: 4em;
-    left: 4em;
+    top: 2em;
+    left: 2em;
     color: $TxtAverage;
     z-index: 1;
   }

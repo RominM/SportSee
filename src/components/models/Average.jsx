@@ -1,6 +1,15 @@
+// React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+// Service
 import { Api } from '../../service/Api';
 import { Mock } from '../../service/Mock.service';
 
@@ -10,10 +19,10 @@ const Average = () => {
 
   useEffect(() => {
     const getAverage = async () => {
-      // const mock = new Mock();
-      // const userAverage = await mock.getUserAverage(averageID);
-      const api = new Api();
-      const userAverage = await api.getUserActivity(averageID);
+      const mock = new Mock();
+      const userAverage = await mock.getUserAverage(averageID);
+      // const api = new Api();
+      // const userAverage = await api.getUserActivity(averageID);
 
       setAverage(userAverage);
     };
@@ -59,44 +68,46 @@ const Average = () => {
         Durée moyenne des <br />
         sessions
       </h3>
-      <LineChart
-        width={320}
-        height={320}
-        data={averageData}
-        margin={{ top: 0, right: 10, bottom: 0, left: 10 }}
-      >
-        <Line
-          type="monotone"
-          dataKey="sessionLength"
-          dot={false}
-          activeDot={{ r: 5, strokeOpacity: 0.2, strokeWidth: 10 }}
-          stroke="rgba(255, 255, 255, 0.5)"
-          strokeWidth={2}
-        />
-        <XAxis
-          dataKey="day"
-          axisLine={false}
-          mirror={true}
-          padding={{ left: 10, right: 10 }}
-          stroke="rgba(255, 255, 255, 0.5)"
-          style={{ fontSize: 12, fontWeight: 500 }}
-          tickLine={false}
-          tickMargin={15}
-          tickFormatter={daysWeekTxt}
-        />
-        <YAxis
-          axisLine={false}
-          domain={['dataMin - 20', 'dataMax + 40']}
-          mirror={true}
-          tickCount={0}
-          tickLine={false}
-        />
-        <Tooltip
-          content={customTooltip}
-          cursor={{ stroke: 'black', strokeOpacity: 0.2, strokeWidth: 40 }}
-          offset={30}
-        />{' '}
-      </LineChart>
+      <ResponsiveContainer>
+        <LineChart
+          width={200}
+          height={200}
+          data={averageData}
+          margin={{ top: 0, right: 10, bottom: 0, left: 10 }}
+        >
+          <Line
+            type="monotone"
+            dataKey="sessionLength"
+            dot={false}
+            activeDot={{ r: 5, strokeOpacity: 0.2, strokeWidth: 10 }}
+            stroke="rgba(255, 255, 255, 0.5)"
+            strokeWidth={2}
+          />
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            mirror={true}
+            padding={{ left: 10, right: 10 }}
+            stroke="rgba(255, 255, 255, 0.5)"
+            style={{ fontSize: 12, fontWeight: 500 }}
+            tickLine={false}
+            tickMargin={15}
+            tickFormatter={daysWeekTxt}
+          />
+          <YAxis
+            axisLine={false}
+            domain={['dataMin - 20', 'dataMax + 40']}
+            mirror={true}
+            tickCount={0}
+            tickLine={false}
+          />
+          <Tooltip
+            content={customTooltip}
+            cursor={{ stroke: 'black', strokeOpacity: 0.2, strokeWidth: 40 }}
+            offset={30}
+          />{' '}
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };

@@ -1,6 +1,8 @@
+// React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { RadialBar, RadialBarChart } from 'recharts';
+// Service
 import { Api } from '../../service/Api';
 import { Mock } from '../../service/Mock.service';
 
@@ -9,10 +11,10 @@ const Score = () => {
   const [score, setScore] = useState([]);
   useEffect(() => {
     const getScore = async () => {
-      // const mock = new Mock();
-      // const mainUser = await mock.getMainData(scoreID);
-      const api = new Api();
-      const mainUser = await api.getUserActivity(scoreID);
+      const mock = new Mock();
+      const mainUser = await mock.getMainData(scoreID);
+      // const api = new Api();
+      // const mainUser = await api.getUserActivity(scoreID);
 
       setScore(mainUser);
     };
@@ -42,13 +44,13 @@ const Score = () => {
       </p>
 
       <RadialBarChart
-        width={320}
-        height={320}
+        width={200}
+        height={200}
         startAngle={90}
         endAngle={450}
         innerRadius={90}
-        outerRadius={90}
-        barSize={10}
+        outerRadius={55}
+        barSize={7}
         data={scoreValue}
       >
         <RadialBar cornerRadius={50} dataKey="value" />

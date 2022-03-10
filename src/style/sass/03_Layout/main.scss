@@ -1,12 +1,11 @@
 main {
-  width: 1200px;
+  width: 100vh;
   height: auto;
-  margin-right: 50px;
+  margin-right: 25px;
   .secondary-graph {
     position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
-
   }
 }

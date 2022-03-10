@@ -1,21 +1,23 @@
 .header {
   background-color: $MainBlack;
-  height: 100px;
+  height: 80px;
   font-size: 1.2em;
+  box-shadow: 2px 2px 2px #000;
   ul,
   .header__nav {
     position: relative;
     display: flex;
     justify-content: space-between;
     width: 90%;
-    padding-top: 40px;
-    padding-left: 100px;
-    .logo {
+    padding-top: 29px;
+    padding-left: 78px;
+    .logo img {
       position: absolute;
-      top: 35%;
-      left: 3%;
+      top: 30%;
+      left: 1.5%;
       background-color: $MainRed;
-      width: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
     }
     h1 {
@@ -23,15 +25,16 @@
       font-family: sans-serif;
       font-size: 1.5rem;
       font-weight: lighter;
-      margin-left: 20px;
+      margin: 0 50px 0 17px;
     }
     .header-ul {
-      padding: 0 200px;
+      padding: 0 25px;
+      justify-content: space-around;
       a {
         text-decoration: none;
         color: $MainWhite;
-        font-weight: bold;
-        font-size: 1.5rem;
+        font-weight: normal;
+        font-size: 1.2rem;
       }
     }
   }
