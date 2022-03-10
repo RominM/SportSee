@@ -11,24 +11,23 @@ import fireIcon from './../../assets/images/fire.svg';
 import meatIcon from './../../assets/images/meat.svg';
 import appleIcon from './../../assets/images/apple.svg';
 import burgerIcon from './../../assets/images/burger.svg';
+import { service } from '../../service/Service';
 
 const Aside = () => {
-  const keyDataID = useParams().id;
   const [keyData, setKeyData] = useState([]);
   useEffect(() => {
     const getKeyData = async () => {
-      const mock = new Mock();
-      const mainUser = await mock.getMainData(keyDataID);
-      // const api = new Api();
-      // const mainUser = await api.getUserActivity(keyDataID);
+      const mainUser = await service.getMainData();
       setKeyData(mainUser);
     };
     getKeyData();
-  }, [keyDataID]);
+  }, []);
 
   const userData = keyData.keyData;
-
-  return userData ? (
+  if (!userData) {
+    return null;
+  }
+  return (
     <aside className="analyticsRight">
       <Analytics
         compoId="calo"
@@ -59,8 +58,6 @@ const Aside = () => {
         compoType="Lipides"
       />
     </aside>
-  ) : (
-    <></>
   );
 };
 

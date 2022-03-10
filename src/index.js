@@ -25,7 +25,7 @@ ReactDOM.render(
       <BlockPage>
         <Routes>
           <Route path="/" element={<SelectUser />} />
-          <Route path="/Accueil/:id/" element={<Home />} />
+          <Route path="/user/:id/" element={<Home />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </BlockPage>

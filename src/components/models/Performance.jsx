@@ -8,21 +8,22 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts';
+import { Api } from '../../service/Api';
 // Service
 import { Mock } from '../../service/Mock.service';
+import { service } from '../../service/Service';
 
 const Performance = () => {
-  const performanceID = useParams().id;
   const [performance, setPerformance] = useState([]);
 
   useEffect(() => {
     const getPerfomance = async () => {
-      const mock = new Mock();
-      const userPerformance = await mock.getUserPerformance(performanceID);
+      const userPerformance = await service.getUserPerformance();
+
       setPerformance(userPerformance);
     };
     getPerfomance();
-  }, [performanceID]);
+  }, []);
   const performanceData = performance.data;
 
   const TranformKind = (tickItem) => {

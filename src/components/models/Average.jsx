@@ -12,22 +12,18 @@ import {
 // Service
 import { Api } from '../../service/Api';
 import { Mock } from '../../service/Mock.service';
+import { service } from '../../service/Service';
 
 const Average = () => {
-  const averageID = useParams().id;
   const [average, setAverage] = useState([]);
 
   useEffect(() => {
     const getAverage = async () => {
-      const mock = new Mock();
-      const userAverage = await mock.getUserAverage(averageID);
-      // const api = new Api();
-      // const userAverage = await api.getUserActivity(averageID);
-
+      const userAverage = await service.getUserAverage();
       setAverage(userAverage);
     };
     getAverage();
-  }, [averageID]);
+  }, []);
   const averageData = average.sessions;
 
   const daysWeekTxt = (day) => {

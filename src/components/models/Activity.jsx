@@ -13,24 +13,21 @@ import {
 // Service
 import { Api } from '../../service/Api';
 import { Mock } from '../../service/Mock.service';
+import { service } from '../../service/Service';
 // Tools
 import BlackPoint from './../../assets/images/BlackPoint.svg';
 import RedPoint from './../../assets/images/RedPoint.svg';
 
 const Activity = () => {
-  const activityID = useParams().id;
   const [activity, setActivity] = useState([]);
 
   useEffect(() => {
     const getPerformance = async () => {
-      const mock = new Mock();
-      const userActivity = await mock.getUserActivity(activityID);
-      // const api = new Api();
-      // const userActivity = await api.getUserActivity(activityID);
+      const userActivity = await service.getUserActivity();
       setActivity(userActivity);
     };
     getPerformance();
-  }, [activityID]);
+  }, []);
   const activityData = activity.sessions;
 
   const daysWeeksNumbers = (date) => {

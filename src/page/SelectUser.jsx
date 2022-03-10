@@ -8,7 +8,7 @@ const SelectUser = () => {
     <>
       <section className="users">
         {data.USER_MAIN_DATA.map((user) => (
-          <Link to={'Accueil/' + user.id} key={user.id}>
+          <Link to={'user/' + user.id} key={user.id}>
             <li className="card">
               <img src={logo} alt="logo" />
             </li>

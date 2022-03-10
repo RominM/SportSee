@@ -13,7 +13,7 @@ const Header = () => {
         </Link>
         <h1>SportSee</h1>
         <ul className="header-ul">
-          <Link to="/Accueil/:id">
+          <Link to="/user/:id">
             <li>Accueil</li>
           </Link>
           <Link to="/Profil">

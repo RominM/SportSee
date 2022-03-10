@@ -1,7 +1,7 @@
 // React
 import React, { useEffect, useState } from 'react';
 // Service
-import { Service } from '../../service/Service';
+// import { Service } from '../../service/Service';
 // Tools
 import Zen from './../../assets/images/zen.svg';
 import Swim from './../../assets/images/swim.svg';
@@ -9,16 +9,6 @@ import Ride from './../../assets/images/ride.svg';
 import Weight from './../../assets/images/weight.svg';
 
 const Sidebar = () => {
-  const [dataFromService, setDataFromService] = useState(null);
-  const [origin, setOrigin] = useState('mock');
-
-  useEffect(() => {
-    async function getSwitch(id) {
-      const response = await new Service(origin).getUserService(id);
-      setDataFromService(response);
-    }
-    getSwitch();
-  });
   return (
     <div>
       <nav className="sidebar__nav">
@@ -35,15 +25,6 @@ const Sidebar = () => {
           <li className="li-side">
             <img src={Weight} alt="weight" />
           </li>
-          {dataFromService && (
-            <>
-              <button
-                onClick={() => setOrigin(origin === 'mock' ? 'api' : 'mock')}
-              >
-                {dataFromService}
-              </button>
-            </>
-          )}
         </ul>
         <span className="copyright">Copyright, SportSee2020</span>
       </nav>

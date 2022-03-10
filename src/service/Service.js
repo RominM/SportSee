@@ -1,13 +1,24 @@
 import { Api } from './Api';
 import { Mock } from './Mock.service';
 
-export class Service {
-  constructor(origin, id, userId) {
-    this.origin = origin === 'mock' ? new Mock() : new Api();
-    this.id = id;
+class Service {
+  constructor(origin, userId) {
+    this.origin = origin;
     this.userId = userId;
   }
-  async getUserService(id, userId) {
-    return this.origin.getMainData();
+  async getMainData() {
+    return this.origin.getMainData(this.userId);
+  }
+  async getUserActivity() {
+    return this.origin.getUserActivity(this.userId);
+  }
+  async getUserAverage() {
+    return this.origin.getUserAverage(this.userId);
+  }
+  async getUserPerformance() {
+    return this.origin.getUserPerformance(this.userId);
   }
 }
+
+const appUserId = 18;
+export const service = new Service(new Api(), appUserId);

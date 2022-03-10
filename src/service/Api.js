@@ -13,14 +13,15 @@ export class Api {
       'http://localhost:3000/user/' + userId + '/activity'
     );
     const data = await response.json();
-    return data.data.sessions;
+    console.log(data);
+    return data.data;
   }
   async getUserAverage(userId) {
     const response = await fetch(
       'http://localhost:3000/user/' + userId + '/average-sessions'
     );
     const data = await response.json();
-    return data.data.sessions;
+    return data.data;
   }
   async getUserPerformance(userId) {
     const response = await fetch(
