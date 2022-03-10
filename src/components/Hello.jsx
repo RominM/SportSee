@@ -4,10 +4,10 @@ import { service } from '../service/Service';
 
 const Hello = () => {
   const [userName, setUserName] = useState([]);
+
   useEffect(() => {
     const getFirstName = async () => {
       const mainUser = await service.getMainData();
-      console.log(mainUser);
       setUserName(mainUser);
     };
     getFirstName();

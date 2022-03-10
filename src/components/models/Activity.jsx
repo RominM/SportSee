@@ -91,7 +91,6 @@ const Activity = () => {
           </div>
         </div>
       </div>
-      {/* <ResponsiveContainer width="100%" aspect={2.8}> */}
       <BarChart
         width={650}
         height={220}
@@ -140,7 +139,6 @@ const Activity = () => {
           radius={[50, 50, 0, 0]}
         />{' '}
       </BarChart>
-      {/* </ResponsiveContainer> */}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { RadialBar, RadialBarChart } from 'recharts';
+import { RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts';
 // Service
 import { service } from '../../service/Service';
 
@@ -45,8 +45,8 @@ const Score = () => {
       </p>
 
       <RadialBarChart
-        width={200}
-        height={200}
+        width={220}
+        height={220}
         startAngle={90}
         endAngle={450}
         innerRadius={90}
