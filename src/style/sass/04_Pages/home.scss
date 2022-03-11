@@ -1,25 +1,35 @@
 .home {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 90%;
+  margin-bottom: 50px;
+  box-sizing: border-box;
   .body-graph {
     display: flex;
     width: 100%;
     main {
       width: 75%;
       height: auto;
-      margin-right: 25px;
       .secondary-graph {
         position: relative;
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        height: auto;
+        width: 90%;
+        margin: 30px;
+        // border: solid;
       }
     }
     aside {
+      // border: solid;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       width: 25%;
       height: auto;
-      margin-top: 20px;
+      margin-top: 30px;
+      margin-right: 30px;
     }
   }
 }

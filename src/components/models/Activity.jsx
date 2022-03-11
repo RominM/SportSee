@@ -91,56 +91,60 @@ const Activity = () => {
           </div>
         </div>
       </div>
-      <BarChart
-        width={650}
-        height={220}
-        data={activityData}
-        barGap={7}
-        barSize={7}
-        margin={{ top: 10, right: 0, bottom: 25, left: 14 }}
-      >
-        <CartesianGrid strokeDasharray="2" vertical={false} />
-        <XAxis
-          dataKey="day"
-          axisLine={false}
-          // padding={{ left: -49, right: -49 }}
-          tickFormatter={daysWeeksNumbers}
-          tickLine={false}
-          tickMargin={15}
-        />
-        <Tooltip content={customTooltip} offset={30} />{' '}
-        <YAxis
-          yAxisId="left"
-          axisLine={false}
-          domain={['dataMin - 2', 'dataMax + 1']}
-          orientation="right"
-          tickCount={3}
-          tickLine={false}
-          tickMargin={25}
-        />
-        <YAxis
-          yAxisId="right"
-          axisLine={false}
-          domain={['dataMin - 55', 'dataMax + 10']}
-          mirror={true}
-          tickCount={0}
-          tickLine={false}
-        />
-        <Bar
-          yAxisId="left"
-          dataKey="kilogram"
-          fill="#282D30"
-          radius={[50, 50, 0, 0]}
-        />
-        <Bar
-          yAxisId="right"
-          dataKey="calories"
-          fill="#E60000"
-          radius={[50, 50, 0, 0]}
-        />{' '}
-      </BarChart>
+      <ResponsiveContainer width="98%" height="80%">
+        <BarChart
+          width={500}
+          height={200}
+          data={activityData}
+          barGap={7}
+          barSize={7}
+          margin={{ top: 10, right: 0, bottom: 25, left: 14 }}
+        >
+          <CartesianGrid strokeDasharray="2" vertical={false} />
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            // padding={{ left: -49, right: -49 }}
+            tickFormatter={daysWeeksNumbers}
+            tickLine={false}
+            tickMargin={15}
+          />
+          <Tooltip content={customTooltip} offset={30} />{' '}
+          <YAxis
+            yAxisId="left"
+            axisLine={false}
+            domain={['dataMin - 2', 'dataMax + 1']}
+            orientation="right"
+            tickCount={3}
+            tickLine={false}
+            tickMargin={25}
+          />
+          <YAxis
+            yAxisId="right"
+            axisLine={false}
+            domain={['dataMin - 55', 'dataMax + 10']}
+            mirror={true}
+            tickCount={0}
+            tickLine={false}
+          />
+          <Bar
+            yAxisId="left"
+            dataKey="kilogram"
+            fill="#282D30"
+            radius={[50, 50, 0, 0]}
+          />
+          <Bar
+            yAxisId="right"
+            dataKey="calories"
+            fill="#E60000"
+            radius={[50, 50, 0, 0]}
+          />{' '}
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
 
 export default Activity;
+
+Activity.PropType = {};

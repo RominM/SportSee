@@ -69,3 +69,5 @@ const Aside = () => {
 };
 
 export default Aside;
+
+Aside.PropType = {};

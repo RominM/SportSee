@@ -49,7 +49,7 @@ const Performance = () => {
 
   return (
     <div className="anaItem performance">
-      <ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           width={200}
           height={200}
@@ -67,7 +67,7 @@ const Performance = () => {
             dy={4}
             tickLine={false}
             style={{
-              fontSize: '9px',
+              fontSize: '.7vw',
               fontWeight: '500',
             }}
           />
@@ -85,3 +85,5 @@ const Performance = () => {
 };
 
 export default Performance;
+
+Performance.PropType = {};

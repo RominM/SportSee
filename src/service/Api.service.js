@@ -1,3 +1,5 @@
+// Get data from API
+
 export class Api {
   constructor(id, userId) {
     this.id = id;
@@ -5,29 +7,28 @@ export class Api {
   }
   async getMainData(id) {
     const response = await fetch('http://localhost:3000/user/' + id);
-    const data = await response.json();
-    return data.data;
+    const userData = await response.json();
+    return userData.data;
   }
   async getUserActivity(userId) {
     const response = await fetch(
       'http://localhost:3000/user/' + userId + '/activity'
     );
-    const data = await response.json();
-    console.log(data);
-    return data.data;
+    const activityData = await response.json();
+    return activityData.data;
   }
   async getUserAverage(userId) {
     const response = await fetch(
       'http://localhost:3000/user/' + userId + '/average-sessions'
     );
-    const data = await response.json();
-    return data.data;
+    const averageData = await response.json();
+    return averageData.data;
   }
   async getUserPerformance(userId) {
     const response = await fetch(
       'http://localhost:3000/user/' + userId + '/performance'
     );
-    const data = await response.json();
-    return data.data;
+    const perfomranceData = await response.json();
+    return perfomranceData.data;
   }
 }

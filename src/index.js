@@ -1,34 +1,24 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import styled from 'styled-components';
-
-import Error from './page/Error';
-import Sidebar from './components/layout/Sidebar';
+// Components
 import Header from './components/layout/Header';
-
+import Sidebar from './components/layout/Sidebar';
+import Home from './page/Home';
+import Error from './page/Error';
+// Style
 import './style/reset.css';
 import './style/sass/master.scss';
-import Home from './page/Home';
-import SelectUser from './page/SelectUser';
-
-const BlockPage = styled.article`
-  position: absolute;
-  top: 15%;
-  left: 15%;
-`;
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Header />
-      <BlockPage>
-        <Routes>
-          {/* <Route path="/" element={<SelectUser />} /> */}
-          <Route path="/user/:id/" element={<Home />} />
-          <Route path="/*" element={<Error />} />
-        </Routes>
-      </BlockPage>
+      <Routes>
+        <Route path="/user/:id/" element={<Home />} />
+        <Route path="/*" element={<Error />} />
+      </Routes>
       <Sidebar />
     </Router>
   </React.StrictMode>,

@@ -43,21 +43,24 @@ const Score = () => {
           objectif
         </span>
       </p>
-
-      <RadialBarChart
-        width={220}
-        height={220}
-        startAngle={90}
-        endAngle={450}
-        innerRadius={90}
-        outerRadius={55}
-        barSize={7}
-        data={scoreValue}
-      >
-        <RadialBar cornerRadius={50} dataKey="value" />
-      </RadialBarChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <RadialBarChart
+          width={200}
+          height={200}
+          startAngle={90}
+          endAngle={450}
+          innerRadius={90}
+          outerRadius={55}
+          barSize={7}
+          data={scoreValue}
+        >
+          <RadialBar cornerRadius={50} dataKey="value" />
+        </RadialBarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
 
 export default Score;
+
+Score.PropType = {};
