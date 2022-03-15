@@ -1,6 +1,6 @@
 // React
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // Tools
 import Logo from './../../assets/images/logo.svg';
 
@@ -13,18 +13,38 @@ const Header = () => {
         </Link>
         <h1>SportSee</h1>
         <ul className="header-ul">
-          <Link to="/user/:id">
-            <li>Accueil</li>
-          </Link>
-          <Link to="/Profil">
-            <li>Profil</li>
-          </Link>
-          <Link to="/setting">
-            <li>Réglage</li>
-          </Link>
-          <Link to="/community">
-            <li>Communauté</li>
-          </Link>
+          <li>
+            <NavLink
+              to="/user/:id"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              Accueil
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Profil"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              Profil
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/setting"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              Réglage
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/community"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              Communauté
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

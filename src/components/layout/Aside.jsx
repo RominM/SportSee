@@ -1,5 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
+import PropType, { string } from 'prop-types';
 // Service
 import { service } from '../../service/Service';
 // Components
@@ -40,7 +41,9 @@ const Aside = () => {
         compoId="calo"
         iconSrc={fireIcon}
         iconAlt="calories"
-        compoValue={`${userData.calorieCount}kCal`}
+        compoValue={`${new Intl.NumberFormat('en-IN', {
+          maximumSignificantDigits: 3,
+        }).format(userData.calorieCount)}kCal`}
         compoType="Calories"
       />
       <Analytics
@@ -70,4 +73,6 @@ const Aside = () => {
 
 export default Aside;
 
-Aside.PropType = {};
+Aside.propType = {
+  userData: PropType.objectOf(string),
+};

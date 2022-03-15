@@ -9,13 +9,46 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { PropTypes } from 'prop-types';
 // Service
 import { service } from '../../service/Service';
 // Tools
 import BlackPoint from './../../assets/images/BlackPoint.svg';
 import RedPoint from './../../assets/images/RedPoint.svg';
 
-/**
+/************************************************************************
+ * Renders the tooltip (kg/kCal) information when user hovers on barchart
+ * @function CustomTooltip
+ * @param { boolean } active: inital value false / becomes true when hover on barchart
+ * @param { array } payload: contains data to be displayed on hover
+ * @returns { JSX }
+ */
+
+const customTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          background: '#ff0101',
+          height: 45,
+          color: 'white',
+          fontSize: 12,
+          textAlign: 'center',
+          padding: 10,
+        }}
+      >
+        <p>{`${payload[0].value} kg`}</p>
+        <p>{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
+/***********************************************************
  * Renders Activities BarChart with Weight & Calories burned
  * @function Activity
  * @param { Object } activityData
@@ -23,6 +56,11 @@ import RedPoint from './../../assets/images/RedPoint.svg';
  */
 
 const Activity = () => {
+  const daysWeeksNumbers = (date) => {
+    const dayNumber = new Date(date);
+    return dayNumber.getDate();
+  };
+  // STATE
   const [activity, setActivity] = useState([]);
 
   useEffect(() => {
@@ -34,43 +72,6 @@ const Activity = () => {
   }, []);
 
   const activityData = activity.sessions;
-
-  /**
-   * Renders the tooltip (kg/kCal) information when user hovers on barchart
-   * @function CustomTooltip
-   * @param { boolean } active: inital value false / becomes true when hover on barchart
-   * @param { array } payload: contains data to be displayed on hover
-   * @returns { JSX }
-   */
-
-  const customTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            background: '#ff0101',
-            height: 45,
-            color: 'white',
-            fontSize: 12,
-            textAlign: 'center',
-            padding: 10,
-          }}
-        >
-          <p>{`${payload[0].value} kg`}</p>
-          <p>{`${payload[1].value} kCal`}</p>
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const daysWeeksNumbers = (date) => {
-    const dayNumber = new Date(date);
-    return dayNumber.getDate();
-  };
 
   return (
     <div className="activity">
@@ -104,7 +105,6 @@ const Activity = () => {
           <XAxis
             dataKey="day"
             axisLine={false}
-            // padding={{ left: -49, right: -49 }}
             tickFormatter={daysWeeksNumbers}
             tickLine={false}
             tickMargin={15}
@@ -146,5 +146,8 @@ const Activity = () => {
 };
 
 export default Activity;
-
-Activity.PropType = {};
+// Proptypes
+customTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};

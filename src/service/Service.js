@@ -1,5 +1,5 @@
 import { Api } from './Api.service';
-// import { Mock } from './Mock.service';
+import { Mock } from './Mock.service';
 
 class Service {
   constructor(origin, userId) {
@@ -21,4 +21,4 @@ class Service {
 }
 
 const appUserId = 12;
-export const service = new Service(new Api(), appUserId);
+export const service = new Service(new Mock(), appUserId);

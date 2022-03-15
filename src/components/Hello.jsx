@@ -31,5 +31,3 @@ const Hello = () => {
 };
 
 export default Hello;
-
-Hello.PropType = {};

@@ -8,10 +8,38 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { PropTypes } from 'prop-types';
 // Service
 import { service } from '../../service/Service';
 
-/**
+/********************************************************************************
+ * * Renders the tooltip (minutes) information when user hovers on the line chart
+ * @function CustomTooltip
+ * @param { boolean } active: inital value false / becomes true when hover on linechart
+ * @param { array } payload: contains data to be displayed on hover
+ * @returns { JSX }
+ */
+
+const customTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div
+        style={{
+          background: 'white',
+          fontSize: 10,
+          fontWeight: 500,
+          textAlign: 'center',
+          padding: 10,
+        }}
+      >
+        <p>{`${payload[0].value} min`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
+/*************************************
  * Renders Average Sessions Line Chart
  * @function Average
  * @param { Object } averageData
@@ -19,6 +47,11 @@ import { service } from '../../service/Service';
  */
 
 const Average = () => {
+  const daysWeekTxt = (day) => {
+    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    return days[day - 1];
+  };
+  // STATE
   const [average, setAverage] = useState([]);
 
   useEffect(() => {
@@ -30,38 +63,6 @@ const Average = () => {
   }, []);
 
   const averageData = average.sessions;
-
-  /**
-   * * Renders the tooltip (minutes) information when user hovers on the line chart
-   * @function CustomTooltip
-   * @param { boolean } active: inital value false / becomes true when hover on linechart
-   * @param { array } payload: contains data to be displayed on hover
-   * @returns { JSX }
-   */
-
-  const customTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div
-          style={{
-            background: 'white',
-            fontSize: 10,
-            fontWeight: 500,
-            textAlign: 'center',
-            padding: 10,
-          }}
-        >
-          <p>{`${payload[0].value} min`}</p>
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const daysWeekTxt = (day) => {
-    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-    return days[day - 1];
-  };
 
   if (!averageData) {
     return null;
@@ -119,4 +120,8 @@ const Average = () => {
 
 export default Average;
 
-Average.PropType = {};
+// PropType
+customTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};

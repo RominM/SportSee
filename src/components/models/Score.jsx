@@ -1,6 +1,7 @@
 // React
 import React, { useEffect, useState } from 'react';
 import { RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts';
+import { PropTypes } from 'prop-types';
 // Service
 import { service } from '../../service/Service';
 
@@ -28,6 +29,7 @@ const Score = () => {
     { value: 1, fill: 'transparent' },
     { value: scoreData, fill: '#ff0101' },
   ];
+  console.log(scoreData);
 
   if (!scoreData) {
     return null;
@@ -63,4 +65,6 @@ const Score = () => {
 
 export default Score;
 
-Score.PropType = {};
+Score.propType = {
+  scoreData: PropTypes.string, // blablabla CaMarchePas !!
+};

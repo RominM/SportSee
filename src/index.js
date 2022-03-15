@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <Header />
       <Routes>
-        <Route path="/user/:id/" element={<Home />} />
+        <Route index path="/user/:id/" element={<Home />} />
         <Route path="/*" element={<Error />} />
       </Routes>
       <Sidebar />

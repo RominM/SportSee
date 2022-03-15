@@ -1,15 +1,17 @@
 @import './../01_Base/module.scss';
 
 .not-found {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  margin-bottom: 50px;
+  box-sizing: border-box;
   color: $MainRed;
   text-align: center;
-  width: 750px;
-  margin-left: 310px;
-  //   font-family: $MainFont;
   span {
     display: block;
     font-size: 22vw;
-    //  font-family: $BoldFont;
   }
   h1 {
     font-size: 2vw;

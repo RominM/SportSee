@@ -7,8 +7,31 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts';
+import { PropTypes } from 'prop-types';
 // Service
 import { service } from '../../service/Service';
+
+/******************************************************
+ * Renders kinds transfomed used in Perfomance function
+ * @function TransformKind
+ * @param { String[] } tickItem
+ * @returns
+ */
+const TransformKind = (tickItem) => {
+  const Kind = [
+    'Cardio',
+    'Energie',
+    'Endurance',
+    'Force',
+    'Vitesse',
+    'Intensité',
+  ];
+  if (tickItem) return Kind[tickItem - 1];
+};
+
+TransformKind.propType = {
+  tickItem: PropTypes.array.isRequired,
+};
 
 /**
  * Renders Performance Radar chart- SimpleRadarChart (Recharts)
@@ -31,18 +54,6 @@ const Performance = () => {
   }, []);
   const performanceData = performance.data;
 
-  const TranformKind = (tickItem) => {
-    const Kind = [
-      'Cardio',
-      'Energie',
-      'Endurance',
-      'Force',
-      'Vitesse',
-      'Intensité',
-    ];
-    if (tickItem) return Kind[tickItem - 1];
-  };
-
   if (!performanceData) {
     return null;
   }
@@ -62,7 +73,7 @@ const Performance = () => {
 
           <PolarAngleAxis
             dataKey="kind"
-            tickFormatter={TranformKind}
+            tickFormatter={TransformKind}
             stroke={`#fff`}
             dy={4}
             tickLine={false}
@@ -85,5 +96,3 @@ const Performance = () => {
 };
 
 export default Performance;
-
-Performance.PropType = {};
