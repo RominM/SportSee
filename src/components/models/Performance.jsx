@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Radar,
   RadarChart,
@@ -8,8 +8,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { PropTypes } from 'prop-types';
-// Service
-import { service } from '../../service/Service';
 
 /******************************************************
  * Renders kinds transfomed used in Perfomance function
@@ -35,29 +33,13 @@ TransformKind.propType = {
 
 /**
  * Renders Performance Radar chart- SimpleRadarChart (Recharts)
- * @function Performance
- * @param { Object } PerformanceData
+ * @function
+ * @param { Object } Performance
  * @param { String[] } Kind
  * @returns { JSX } Performance Radar chart
  */
 
-const Performance = () => {
-  const [performance, setPerformance] = useState([]);
-
-  useEffect(() => {
-    const getPerfomance = async () => {
-      const userPerformance = await service.getUserPerformance();
-
-      setPerformance(userPerformance);
-    };
-    getPerfomance();
-  }, []);
-  const performanceData = performance.data;
-
-  if (!performanceData) {
-    return null;
-  }
-
+const Performance = ({ performance }) => {
   return (
     <div className="anaItem performance">
       <ResponsiveContainer width="100%" height="100%">
@@ -67,7 +49,7 @@ const Performance = () => {
           cx="50%"
           cy="50%"
           outerRadius="65%"
-          data={performanceData}
+          data={performance.data}
         >
           <PolarGrid radialLines={false} />
 

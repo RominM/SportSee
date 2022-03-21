@@ -1,9 +1,7 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts';
 import { PropTypes } from 'prop-types';
-// Service
-import { service } from '../../service/Service';
 
 /**
  * Renders the user's Score on a RadialBarChart (Recharts)
@@ -12,24 +10,13 @@ import { service } from '../../service/Service';
  * @returns { JSX }
  */
 
-const Score = () => {
-  const [score, setScore] = useState([]);
-  useEffect(() => {
-    const getScore = async () => {
-      const mainUser = await service.getMainData();
-
-      setScore(mainUser);
-    };
-    getScore();
-  }, []);
-
-  const scoreData = score.todayScore || score.score;
+const Score = ({ keyData }) => {
+  const scoreData = keyData.todayScore || keyData.score;
 
   const scoreValue = [
     { value: 1, fill: 'transparent' },
     { value: scoreData, fill: '#ff0101' },
   ];
-  console.log(scoreData);
 
   if (!scoreData) {
     return null;
@@ -65,6 +52,6 @@ const Score = () => {
 
 export default Score;
 
-Score.propType = {
-  scoreData: PropTypes.string, // blablabla CaMarchePas !!
+Score.propTypes = {
+  scoreData: PropTypes.string,
 };

@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   LineChart,
   Line,
@@ -9,8 +9,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { PropTypes } from 'prop-types';
-// Service
-import { service } from '../../service/Service';
 
 /********************************************************************************
  * * Renders the tooltip (minutes) information when user hovers on the line chart
@@ -20,7 +18,7 @@ import { service } from '../../service/Service';
  * @returns { JSX }
  */
 
-const customTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div
@@ -42,32 +40,15 @@ const customTooltip = ({ active, payload }) => {
 /*************************************
  * Renders Average Sessions Line Chart
  * @function Average
- * @param { Object } averageData
+ * @param { Object } average
  * @returns {JSX}
  */
 
-const Average = () => {
+const Average = ({ average }) => {
   const daysWeekTxt = (day) => {
     const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     return days[day - 1];
   };
-  // STATE
-  const [average, setAverage] = useState([]);
-
-  useEffect(() => {
-    const getAverage = async () => {
-      const userAverage = await service.getUserAverage();
-      setAverage(userAverage);
-    };
-    getAverage();
-  }, []);
-
-  const averageData = average.sessions;
-
-  if (!averageData) {
-    return null;
-  }
-
   return (
     <div className="anaItem average">
       <h3>
@@ -78,7 +59,7 @@ const Average = () => {
         <LineChart
           width={200}
           height={200}
-          data={averageData}
+          data={average.sessions}
           margin={{ top: 0, right: 10, bottom: 0, left: 10 }}
         >
           <Line
@@ -108,7 +89,7 @@ const Average = () => {
             tickLine={false}
           />
           <Tooltip
-            content={customTooltip}
+            content={CustomTooltip}
             cursor={{ stroke: 'black', strokeOpacity: 0.2, strokeWidth: 40 }}
             offset={30}
           />
@@ -121,7 +102,7 @@ const Average = () => {
 export default Average;
 
 // PropType
-customTooltip.propTypes = {
+CustomTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 };

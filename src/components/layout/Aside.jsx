@@ -1,8 +1,6 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropType, { string } from 'prop-types';
-// Service
-import { service } from '../../service/Service';
 // Components
 import Analytics from '../Analytics';
 // Tools
@@ -18,23 +16,10 @@ import burgerIcon from './../../assets/images/burger.svg';
  * @returns { JSX }
  */
 
-const Aside = () => {
-  const [keyData, setKeyData] = useState([]);
-
-  useEffect(() => {
-    const getKeyData = async () => {
-      const mainUser = await service.getMainData();
-      setKeyData(mainUser);
-    };
-    getKeyData();
-  }, []);
-
-  const userData = keyData.keyData;
-
-  if (!userData) {
+const Aside = ({ countData }) => {
+  if (!countData) {
     return null;
   }
-
   return (
     <aside className="analyticsRight">
       <Analytics
@@ -43,28 +28,28 @@ const Aside = () => {
         iconAlt="calories"
         compoValue={`${new Intl.NumberFormat('en-IN', {
           maximumSignificantDigits: 3,
-        }).format(userData.calorieCount)}kCal`}
+        }).format(countData.calorieCount)}kCal`}
         compoType="Calories"
       />
       <Analytics
         compoId="prot"
         iconSrc={meatIcon}
         iconAlt="protéines"
-        compoValue={`${userData.proteinCount}g`}
+        compoValue={`${countData.proteinCount}g`}
         compoType="Protéines"
       />
       <Analytics
         compoId="gluc"
         iconSrc={appleIcon}
         iconAlt="glucides"
-        compoValue={`${userData.carbohydrateCount}g`}
+        compoValue={`${countData.carbohydrateCount}g`}
         compoType="Glucides"
       />
       <Analytics
         compoId="lipi"
         iconSrc={burgerIcon}
         iconAlt="lipides"
-        compoValue={`${userData.lipidCount}g`}
+        compoValue={`${countData.lipidCount}g`}
         compoType="Lipides"
       />
     </aside>

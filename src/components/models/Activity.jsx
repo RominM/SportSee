@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -10,8 +10,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { PropTypes } from 'prop-types';
-// Service
-import { service } from '../../service/Service';
 // Tools
 import BlackPoint from './../../assets/images/BlackPoint.svg';
 import RedPoint from './../../assets/images/RedPoint.svg';
@@ -51,28 +49,15 @@ const customTooltip = ({ active, payload }) => {
 /***********************************************************
  * Renders Activities BarChart with Weight & Calories burned
  * @function Activity
- * @param { Object } activityData
+ * @param { Object } activity
  * @returns { JSX }
  */
 
-const Activity = () => {
+const Activity = ({ activity }) => {
   const daysWeeksNumbers = (date) => {
     const dayNumber = new Date(date);
     return dayNumber.getDate();
   };
-  // STATE
-  const [activity, setActivity] = useState([]);
-
-  useEffect(() => {
-    const getPerformance = async () => {
-      const userActivity = await service.getUserActivity();
-      setActivity(userActivity);
-    };
-    getPerformance();
-  }, []);
-
-  const activityData = activity.sessions;
-
   return (
     <div className="activity">
       <div className="legend">
@@ -96,7 +81,7 @@ const Activity = () => {
         <BarChart
           width={500}
           height={200}
-          data={activityData}
+          data={activity.sessions}
           barGap={7}
           barSize={7}
           margin={{ top: 10, right: 0, bottom: 25, left: 14 }}

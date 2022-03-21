@@ -1,23 +1,9 @@
 // React
-import React, { useEffect, useState } from 'react';
-import { service } from '../service/Service';
+import React from 'react';
 
-const Hello = () => {
-  const [userName, setUserName] = useState([]);
+const Hello = ({ dataCurrentUser }) => {
+  const userData = dataCurrentUser.userInfos;
 
-  useEffect(() => {
-    const getFirstName = async () => {
-      const mainUser = await service.getMainData();
-      setUserName(mainUser);
-    };
-    getFirstName();
-  }, []);
-
-  const userData = userName.userInfos;
-
-  // if (!userData.firstName) {
-  //   return null;
-  // }
   return userData ? (
     <div className="hello">
       <h2 className="hello--user">
