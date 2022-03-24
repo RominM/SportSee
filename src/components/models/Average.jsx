@@ -106,3 +106,7 @@ CustomTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 };
+
+Average.propTypes = {
+  average: PropTypes.object.isRequired,
+};

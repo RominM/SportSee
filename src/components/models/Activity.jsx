@@ -22,7 +22,7 @@ import RedPoint from './../../assets/images/RedPoint.svg';
  * @returns { JSX }
  */
 
-const customTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div
@@ -94,7 +94,7 @@ const Activity = ({ activity }) => {
             tickLine={false}
             tickMargin={15}
           />
-          <Tooltip content={customTooltip} offset={30} />{' '}
+          <Tooltip content={CustomTooltip} offset={30} />{' '}
           <YAxis
             yAxisId="left"
             axisLine={false}
@@ -132,7 +132,11 @@ const Activity = ({ activity }) => {
 
 export default Activity;
 // Proptypes
-customTooltip.propTypes = {
+CustomTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
+};
+
+Activity.propTypes = {
+  activity: PropTypes.object.isRequired,
 };

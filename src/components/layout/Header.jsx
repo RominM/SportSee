@@ -15,7 +15,7 @@ const Header = () => {
         <ul className="header-ul">
           <li>
             <NavLink
-              to="/user/:id"
+              to="/user/12"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
               Accueil

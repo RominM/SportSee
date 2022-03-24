@@ -40,7 +40,7 @@ You should see _Magic happens on port 3000_
 ---
 
 Go back to the first terminal and do the same thing.
-run `npm run start` and wait for a minute...
+run `npm start` and wait for a minute...
 
 You should see somting like:
 _? Something is already running on port 3000._

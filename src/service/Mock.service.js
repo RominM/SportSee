@@ -6,7 +6,6 @@ import {
 } from './data-mocked';
 
 // Get data from data-mocked
-
 export class Mock {
   constructor(main, activity, average, performance) {
     this.main = USER_MAIN_DATA;

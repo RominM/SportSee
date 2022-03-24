@@ -53,5 +53,5 @@ const Score = ({ keyData }) => {
 export default Score;
 
 Score.propTypes = {
-  scoreData: PropTypes.string,
+  keyData: PropTypes.object.isRequired,
 };

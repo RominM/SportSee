@@ -78,3 +78,7 @@ const Performance = ({ performance }) => {
 };
 
 export default Performance;
+
+Performance.propTypes = {
+  performance: PropTypes.object.isRequired,
+};

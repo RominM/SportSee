@@ -8,6 +8,7 @@ import { service } from '../service/Service';
 import Hello from '../components/Hello';
 import Main from '../components/layout/Main';
 import Aside from '../components/layout/Aside';
+import Loader from '../components/Loader';
 
 /**
  * @param { Integer } props id: used for route
@@ -16,62 +17,82 @@ import Aside from '../components/layout/Aside';
 
 const Home = () => {
   // get id from url
-  const UserData = dataMocked.USER_MAIN_DATA;
-  console.log(UserData);
   const userId = useParams().id;
   // init user
-  const dataCurrentUser = UserData.find((user) => user.id === Number(userId));
-  const currentUserID = dataCurrentUser.id;
 
   // init State
+  const [loading, setLoading] = useState(true);
   const [activity, setActivity] = useState([]);
   const [average, setAverage] = useState([]);
   const [performance, setPerformance] = useState([]);
-  const [keyData, setKeyData] = useState([]);
+  const [keyData, setKeyData] = useState(null);
 
   // get Data after update state
   useEffect(() => {
     const getKeyData = async () => {
-      return service.getMainData(currentUserID);
+      return service.getMainData(userId);
     };
 
-    const getActivity = async () => {
-      return service.getUserActivity(currentUserID);
-    };
+    getKeyData()
+      .then((user) => setKeyData(user))
+      .catch((e) => {
+        console.log(e);
+        setLoading(false);
+      });
+  }, []);
 
-    const getAverage = async () => {
-      return service.getUserAverage(currentUserID);
-    };
+  useEffect(() => {
+    if (keyData) {
+      const getActivity = async () => {
+        return service.getUserActivity(userId);
+      };
 
-    const getPerformance = async () => {
-      return service.getUserPerformance(currentUserID);
-    };
+      const getAverage = async () => {
+        return service.getUserAverage(userId);
+      };
 
-    Promise.all([
-      getKeyData(),
-      getActivity(),
-      getAverage(),
-      getPerformance(),
-    ]).then((values) => {
-      setKeyData(values[0]);
-      setActivity(values[1]);
-      setAverage(values[2]);
-      setPerformance(values[3]);
-    });
-  });
+      const getPerformance = async () => {
+        return service.getUserPerformance(userId);
+      };
 
-  if (!average || !performance || !keyData || !activity) {
+      Promise.all([getActivity(), getAverage(), getPerformance()])
+        .then((values) => {
+          setActivity(values[0]);
+          setAverage(values[1]);
+          setPerformance(values[2]);
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1500);
+        });
+    }
+  }, [keyData]);
+
+  console.log(keyData);
+  /*if (
+    !average ||
+    !performance.data ||
+    !keyData ||
+    !activity
+    // ||!dataCurrentUser
+  ) {
     return null;
-  }
-  const countData = keyData.keyData;
+  }*/
 
   // if wrong user URL
-  if (!dataCurrentUser) {
+  if (loading) {
+    return <Loader />;
+  }
+  if (keyData === undefined || keyData === null) {
     return <Navigate to="not-found" />;
   }
   return (
     <div className="home">
-      <Hello dataCurrentUser={dataCurrentUser} />
+      <Hello currentUser={keyData} />
       <div className="body-graph">
         <Main
           activity={activity}
@@ -79,7 +100,7 @@ const Home = () => {
           performance={performance}
           keyData={keyData}
         />
-        <Aside countData={countData} />
+        <Aside countData={keyData.keyData} />
       </div>
     </div>
   );

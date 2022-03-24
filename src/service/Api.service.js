@@ -1,5 +1,4 @@
 // Get data from API
-
 export class Api {
   constructor(id, userId) {
     this.id = id;
