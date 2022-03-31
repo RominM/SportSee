@@ -19,22 +19,26 @@ Prerequire:
 ---
 
 First step, open a first terminal (ex: VSC):
-get clone with `git clone` [front-end repository](https://rominmanogil.github.com).
+get clone with `git clone` [front-end repository](https://github.com/RominM/rominmanogil_12_03022022).
 
 run `cd rom` press TAB then press "Enter" to be inside the front-end project.
 
 In the project directory, you can run:
 
-`npm install`
+`npm install` to get all dependencies.
 
 ---
 
 Open a second terminal aside:
-get clone with `git clone` [back-end repository](https://p9-front-end.com).
+get clone with `git clone` [back-end repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard).
 
 run `cd P9` press TAB then press "Enter" to be inside the back-end project.
 
-In this terminal, write `npm start` and please wait a few seconds
+In the project directory, you can run:
+
+`npm install` to get all dependencies.
+
+Then, write `npm start` and please wait a few seconds
 You should see _Magic happens on port 3000_
 
 ---
@@ -50,7 +54,7 @@ Of course, press "Y" ! :)
 
 ---
 
-After a bit time everting could be **Successfully**.
+After a whie everting could be **Successfully**.
 Now you have connected back and front !
 
 # Enjoy ;)
