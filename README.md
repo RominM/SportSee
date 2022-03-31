@@ -3,6 +3,7 @@
 # Welcome to OpenClassrooms project 12
 
 ## SportSee
+![JavaScript](https://img.shields.io/badge/Language-JS-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![SASS](https://img.shields.io/badge/Style-SASS-ff69b4) ![Rechart](https://img.shields.io/badge/Graph-Rechart-red)
 
 Getting Started
 This project was bootstrapped with Create React App and use
