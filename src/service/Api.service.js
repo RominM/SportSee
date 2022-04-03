@@ -6,6 +6,12 @@ export class Api {
   }
   async getMainData(id) {
     const response = await fetch('http://localhost:3000/user/' + id);
+    if (!response.ok && response.status === 404) {
+      throw new Error('User not found');
+    }
+    if (!response.ok && response.status >= 500) {
+      throw new Error('server error');
+    }
     const userData = await response.json();
     return userData.data;
   }
