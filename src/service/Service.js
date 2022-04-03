@@ -19,4 +19,4 @@ class Service {
   }
 }
 
-export const service = new Service(new Mock());
+export const service = new Service(new Api());

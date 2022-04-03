@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 // Service
-import dataMocked from '../service/data-mocked';
 import { service } from '../service/Service';
 // Components
 import Hello from '../components/Hello';
@@ -35,7 +34,7 @@ const Home = () => {
     getKeyData()
     .then((user) => setKeyData(user))
     .catch((e) => {
-      console.log(e);
+      console.log('Erreur API : ' + e.message);
       setLoading(false);
     })
     .finally(() => {
@@ -43,7 +42,7 @@ const Home = () => {
         setLoading(false);
       }, 1500);
     });
-}, []);
+}, [userId]);
   
   useEffect(() => {
     if (keyData) {
@@ -76,12 +75,11 @@ const Home = () => {
     }
   }, [keyData]);
   
-  // if wrong user URL
   if (loading) {
     return <Loader />;
   }
-  console.log(loading);
-  if (keyData === undefined || keyData === null) {
+
+  if (!loading && (keyData === undefined || keyData === null)) {
     return <Navigate to="not-found" />;
   }
   return (
