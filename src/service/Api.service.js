@@ -37,3 +37,4 @@ export class Api {
     return perfomranceData.data;
   }
 }
+// YAGNI, KISS, DRY, SOLID
