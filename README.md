@@ -43,8 +43,12 @@ npm install
 ```shell
 npm start
 ```
-Please wait a few seconds. 
-You should see "_Magic happens on port 3000_"
+
+Please wait a few seconds. You should see : <br>
+
+`
+Magic happens on port 3000
+`
 
 ---
 ## Frontend
@@ -63,15 +67,18 @@ npm install
 ```shell
 npm start
 ```
-Be patiente for a while... 
+Wait for a moment... You should see somting like : <br>
 
-You should see somting like: <br>
-_? Something is already running on port 3000._ <br>
-_Would you like to run the app on another port instead? (Y/n)_ <br>
+`
+? Something is already running on port 3000. Would you like to run the app on another port instead? (Y/n)
+`
+<br>
 
 Of course, press "Y" ! :smiley:
 
-After a whie everting could be **Successfully** then navigate to http://localhost:3001
+After a while evertings could be **Successfully** then navigate to http://localhost:3001 
+<br>
+
 Now you have connected back and front !
 
 ### Enjoy :wink:
