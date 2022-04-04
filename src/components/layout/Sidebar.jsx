@@ -1,7 +1,5 @@
 // React
 import React from 'react';
-// Service
-// import { Service } from '../../service/Service';
 // Tools
 import Zen from './../../assets/images/zen.svg';
 import Swim from './../../assets/images/swim.svg';
