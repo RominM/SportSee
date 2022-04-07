@@ -1,3 +1,4 @@
+const baseURL = 'http://localhost:3000/user/';
 // Get data from API
 export class Api {
   constructor(id, userId) {
@@ -5,7 +6,7 @@ export class Api {
     this.userId = userId;
   }
   async getMainData(id) {
-    const response = await fetch('http://localhost:3000/user/' + id);
+    const response = await fetch(baseURL + id);
     if (!response.ok && response.status === 404) {
       throw new Error('User not found');
     }
@@ -17,21 +18,21 @@ export class Api {
   }
   async getUserActivity(userId) {
     const response = await fetch(
-      'http://localhost:3000/user/' + userId + '/activity'
+      baseURL + userId + '/activity'
     );
     const activityData = await response.json();
     return activityData.data;
   }
   async getUserAverage(userId) {
     const response = await fetch(
-      'http://localhost:3000/user/' + userId + '/average-sessions'
+      baseURL + userId + '/average-sessions'
     );
     const averageData = await response.json();
     return averageData.data;
   }
   async getUserPerformance(userId) {
     const response = await fetch(
-      'http://localhost:3000/user/' + userId + '/performance'
+      baseURL + userId + '/performance'
     );
     const perfomranceData = await response.json();
     return perfomranceData.data;
