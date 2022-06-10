@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 // Service
-import dataMocked from '../service/data-mocked';
 import { service } from '../service/Service';
 // Components
 import Hello from '../components/Hello';
@@ -18,14 +17,13 @@ import Loader from '../components/Loader';
 const Home = () => {
   // get id from url
   const userId = useParams().id;
-  // init user
 
   // init State
   const [loading, setLoading] = useState(true);
+  const [keyData, setKeyData] = useState(null);
   const [activity, setActivity] = useState([]);
   const [average, setAverage] = useState([]);
   const [performance, setPerformance] = useState([]);
-  const [keyData, setKeyData] = useState(null);
 
   // get Data after update state
   useEffect(() => {
@@ -39,7 +37,7 @@ const Home = () => {
         console.log(e);
         setLoading(false);
       });
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (keyData) {
@@ -70,26 +68,19 @@ const Home = () => {
           }, 1500);
         });
     }
-  }, [keyData]);
+  }, [userId, keyData]);
 
-  console.log(keyData);
-  /*if (
-    !average ||
-    !performance.data ||
-    !keyData ||
-    !activity
-    // ||!dataCurrentUser
-  ) {
-    return null;
-  }*/
-
-  // if wrong user URL
   if (loading) {
+    if (
+      !loading &&
+      (keyData === null || keyData === undefined || keyData === false)
+    ) {
+      setLoading(false);
+      return <Navigate to="not-found" />;
+    }
     return <Loader />;
   }
-  if (keyData === undefined || keyData === null) {
-    return <Navigate to="not-found" />;
-  }
+  // if loading is over or ther is no data
   return (
     <div className="home">
       <Hello currentUser={keyData} />
