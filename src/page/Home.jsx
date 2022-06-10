@@ -68,7 +68,7 @@ const Home = () => {
           }, 1500);
         });
     }
-  }, [userId, keyData]);
+  }, [keyData, userId]);
 
   if (loading) {
     if (

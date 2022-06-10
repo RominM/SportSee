@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const Analytics = (props) => {
   return (
@@ -19,3 +20,7 @@ const Analytics = (props) => {
 };
 
 export default Analytics;
+// Proptypes
+Analytics.propTypes = {
+  props: PropTypes.object
+};
