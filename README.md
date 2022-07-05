@@ -1,5 +1,7 @@
 ## SportSee
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b82e525c-d223-4152-9ad8-767f9b82ec54/deploy-status)](https://app.netlify.com/sites/sportsee-rm/deploys)
+
 ==> [Visiting the website](https://rominmanogil-p11-kasa.netlify.app/) <==
 
 #
